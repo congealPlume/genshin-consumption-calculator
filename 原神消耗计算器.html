@@ -6,9 +6,8 @@
     <title>角色突破计算器03</title>
 
     <!-- <script type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.5.0.js'></script> -->
-    <script type='text/javascript'
-        src="https://wiki.biligame.com/ys/MediaWiki:Knockout.js?action=raw&ctype=text/javascript"></script>
     <!-- <script type='text/javascript' src='Knockout.js'></script> -->
+    <script type='text/javascript'src="https://wiki.biligame.com/ys/MediaWiki:Knockout.js?action=raw&ctype=text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="https://staticwiki.biligame.com/resources/bili/css/bootstrap.min.css">
 
 </head>
@@ -58,11 +57,19 @@
                                         当前等级：<input class="containerInput" type="number"
                                             data-bind="value: 当前等级, event:{blur: 当前角色.roleJewels}"
                                             oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
+                                        <label data-bind="if:判定突破前现">
+                                            <input style="display: none;" type="checkbox" data-bind="checked:判定突破前选">
+                                            <div class="calculatorButton" data-bind="text:判定突破前">突破</div>
+                                        </label>
                                     </div>
                                     <div class="classInput">
                                         目标等级：<input class="containerInput" type="number"
                                             data-bind="value: 目标等级, event:{blur: 当前角色.roleJewels}"
-                                            oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" /><br>
+                                            oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
+                                        <label data-bind="if:判定突破后现">
+                                            <input style="display: none;" type="checkbox" data-bind="checked:判定突破后选">
+                                            <div class="calculatorButton" data-bind="text:判定突破后">突破</div>
+                                        </label>
                                     </div>
                                 </div>
                                 <hr>
@@ -244,6 +251,10 @@
         border-color: #ddd;
     }
 
+    label {
+        margin: 0;
+    }
+
     .roleChoiceCase hr {
         border-color: #31708f;
     }
@@ -260,6 +271,7 @@
         border-color: #ddd;
         border-width: 0 0 1px 0;
         outline: none;
+        height: 24px;
     }
 
     .widgetContainer select {
@@ -349,6 +361,11 @@
         width: 50%;
     }
 
+    .classInput .calculatorButton {
+        line-height: 20px;
+        padding: ;
+    }
+
     .calculatorButton {
         width: 100%;
         padding: 2px 10px;
@@ -400,7 +417,7 @@
     }
 
     .containerInput {
-        width: 50px;
+        width: 30px;
     }
 
     .rolePortrait {
@@ -1269,6 +1286,29 @@
                 return this.目标等级() - this.当前等级();
             }, this);
 
+            this.判定突破前现 = ko.computed(function () {
+                return that.当前等级() % 10 == 0
+            })
+            this.判定突破后现 = ko.computed(function () {
+                return that.目标等级() % 10 == 0
+            })
+            this.判定突破前选 = ko.observable(true)
+            this.判定突破前 = ko.computed(function () {
+                if (that.判定突破前选() == true) {
+                    return "突破"
+                } else {
+                    return "不突破"
+                }
+            })
+            this.判定突破后选 = ko.observable(true)
+            this.判定突破后 = ko.computed(function () {
+                if (that.判定突破后选() == true) {
+                    return "突破"
+                } else {
+                    return "不突破"
+                }
+            })
+
             this.角色总计经验 = ko.computed(function () {
                 var expSum = 0;
                 g = Number(this.当前等级());
@@ -1310,9 +1350,19 @@
                 h = that.目标等级();
                 rD = ascensionNum(g, h)
                 ascensionMoraSum = 0;
-                for (var i = 0; i < rD.aDifference + 1; i++) {
-                    ascensionMoraSum = ascensionMoraSum + roleDataTable.角色突破素材[rD.aNumStart].摩拉;
-                    rD.aNumStart = Number(rD.aNumStart) + 1;
+                if (that.判定突破后选() == true) {
+                    var breakthrough = 0
+                } else {
+                    var breakthrough = 1
+                }
+                var NumStart = rD.aNumStart
+                if (that.判定突破前选() == false) {
+                    NumStart = NumStart + 1
+                    breakthrough = breakthrough + 1
+                }
+                for (var i = breakthrough; i < rD.aDifference + 1; i++) {
+                    ascensionMoraSum = ascensionMoraSum + roleDataTable.角色突破素材[NumStart].摩拉;
+                    NumStart = Number(NumStart) + 1;
                 };
                 ascensionMoraSum = ascensionMoraSum * that.角色数量()
                 return ascensionMoraSum;
@@ -1364,7 +1414,7 @@
                     rD.aNumStart = Number(rD.aNumStart) + 1;
                 };
                 return num;
-            }   
+            }
 
             this.元素石2数量 = ko.observable(1);
             this.元素石3数量 = ko.observable(3);
