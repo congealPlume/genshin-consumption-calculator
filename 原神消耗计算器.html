@@ -7,8 +7,9 @@
 
     <!-- <script type='text/javascript' src='https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.5.0.js'></script> -->
     <!-- <script type='text/javascript' src='Knockout.js'></script> -->
-    <script type='text/javascript'src="https://wiki.biligame.com/ys/MediaWiki:Knockout.js?action=raw&ctype=text/javascript"></script>
     <link type="text/css" rel="stylesheet" href="https://staticwiki.biligame.com/resources/bili/css/bootstrap.min.css">
+    <script type='text/javascript'
+        src="https://wiki.biligame.com/ys/MediaWiki:Knockout.js?action=raw&ctype=text/javascript"></script>
 
 </head>
 
@@ -54,8 +55,7 @@
                             <div class="row">
                                 <div class="classInputCase line">
                                     <div class="classInput">
-                                        当前等级：<input class="containerInput" type="number"
-                                            data-bind="value: 当前等级, event:{blur: 当前角色.roleJewels}"
+                                        当前等级：<input class="containerInput" type="number" data-bind="value: 当前等级"
                                             oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
                                         <label data-bind="if:判定突破前现">
                                             <input style="display: none;" type="checkbox" data-bind="checked:判定突破前选">
@@ -63,8 +63,7 @@
                                         </label>
                                     </div>
                                     <div class="classInput">
-                                        目标等级：<input class="containerInput" type="number"
-                                            data-bind="value: 目标等级, event:{blur: 当前角色.roleJewels}"
+                                        目标等级：<input class="containerInput" type="number" data-bind="value: 目标等级"
                                             oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
                                         <label data-bind="if:判定突破后现">
                                             <input style="display: none;" type="checkbox" data-bind="checked:判定突破后选">
@@ -185,15 +184,18 @@
                             <div class="row">
                                 <div class="SwitchCase">
                                     <select class="" data-bind="options: 武器星级列表, value: 武器星级"></select>
+                                    <div>
+                                        武器数量：<input class="containerInput" type="number" data-bind="value: 武器数量" />
+                                    </div>
                                     <span class="deleteButton" data-bind="click: 删除武器栏"></span>
                                 </div>
                                 <div class="col-xs-6">当前等级：<input class="containerInput" type="number"
                                         data-bind="value: 当前等级"
-                                        oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" /><br>
+                                        oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
                                 </div>
                                 <div class="col-xs-6">目标等级：<input class="containerInput" type="number"
                                         data-bind="value: 目标等级"
-                                        oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" /><br>
+                                        oninput="if(value>90)value=90;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
                                 </div>
                                 <div class="col-xs-6">总计需要经验：<span class="" data-bind="text: 武器总计经验"></span>
                                 </div>
@@ -218,21 +220,24 @@
                         <div class="modContainer line">
                             <div class="row">
                                 <div class="SwitchCase">
-                                    <select class="" data-bind="options: 圣遗物星级列表, value: 圣遗物星级"></select><br>
+                                    <select class="" data-bind="options: 圣遗物星级列表, value: 圣遗物星级"></select>
+                                    <div>
+                                        圣遗物数量：<input class="containerInput" type="number" data-bind="value: 圣遗物数量" />
+                                    </div>
                                     <span class="deleteButton" data-bind="click: 删除圣遗物栏"></span>
                                 </div>
                                 <div class="col-xs-6">当前等级：<input type="number" data-bind="value: 当前等级"
-                                        oninput="if(value>20)value=20;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" /><br>
+                                        oninput="if(value>20)value=20;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
                                 </div>
                                 <div class="col-xs-6">目标等级：<input type="number" data-bind="value: 目标等级"
-                                        oninput="if(value>20)value=20;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" /><br>
+                                        oninput="if(value>20)value=20;if(value<0)value=0;if(value.length>2)value=value.slice(0,2)" />
                                 </div>
-                                <div class="col-xs-6">总计需要经验：<span class="" data-bind="text: 圣遗物总计经验"></span><br>
+                                <div class="col-xs-6">总计需要经验：<span class="" data-bind="text: 圣遗物总计经验"></span>
                                 </div>
-                                <div class="col-xs-6">总计需要摩拉：<span class="" data-bind="text: 总计摩拉"></span><br>
+                                <div class="col-xs-6">总计需要摩拉：<span class="" data-bind="text: 总计摩拉"></span>
                                 </div>
-                                <div class="col-xs-6">需要五星圣遗物：<span class="" data-bind="text: 需要五星圣遗物"></span><br>
-                                </div>
+                                <div class="col-xs-6">需要五星圣遗物：<span class="" data-bind="text: 需要五星圣遗物"></span></div>
+                                <div class="col-xs-6">或四星圣遗物：<span class="" data-bind="text: 需要四星圣遗物"></span></div>
                             </div>
                         </div>
                     </div>
@@ -359,11 +364,12 @@
 
     .classInput {
         width: 50%;
+        white-space: nowrap;
     }
 
     .classInput .calculatorButton {
         line-height: 20px;
-        padding: ;
+        padding: 2px 4px;
     }
 
     .calculatorButton {
@@ -417,7 +423,7 @@
     }
 
     .containerInput {
-        width: 30px;
+        width: 20px;
     }
 
     .rolePortrait {
@@ -1323,20 +1329,41 @@
                 return expSum
             }, this);
 
+            this.需要紫书向上 = ko.computed(function () {
+                return Math.ceil(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
+            }, this)
+            this.需要紫书 = ko.computed(function () {
+                return Math.floor(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
+            }, this)
+            this.需要红书 = ko.computed(function () {
+                var expSurplus = this.角色总计经验() % roleDataTable.经验书经验表["大英雄的经验"];//紫书剩的经验
+                return Math.floor(expSurplus / roleDataTable.经验书经验表["冒险家的经验"]);//红书数量向下取整
+            }, this)
+            this.需要白书 = ko.computed(function () {
+                var expSurplus = this.角色总计经验() % roleDataTable.经验书经验表["冒险家的经验"];//红书剩的经验
+                return Math.ceil(expSurplus / roleDataTable.经验书经验表["流浪者的经验"]);//白书数量向上取整
+            }, this)
+
             this.升级摩拉 = ko.computed(function () {
-                return this.角色总计经验() / 5
+                // return this.角色总计经验() / 5
+                return that.需要紫书() * 4000 + that.需要红书() * 1000 + that.需要白书() * 200
             }, this);
 
             //计算等阶差（类似世界等级）
-            ascensionNum = function (g, h) {
+            ascensionNum = function (g, h, that) {
                 if (g.toString().length > 1) {
                     aNumStart = Math.ceil(g / 10)
-                    // aNumStart = g.toString().substr(0, g.toString().length - 1);
+                    if (that.判定突破前选() == false) {
+                        var aNumStart = aNumStart + 1
+                    }
                 } else {
                     aNumStart = 1;
                 }
                 if (h.toString().length > 1) {
                     aNumEnd = h.toString().substr(0, h.toString().length - 1)
+                    if (that.判定突破后选() == false) {
+                        var aNumEnd = aNumEnd - 1
+                    }
                 } else {
                     aNumEnd = 1;
                 }
@@ -1348,21 +1375,12 @@
             this.突破摩拉 = ko.computed(function () {
                 g = that.当前等级();
                 h = that.目标等级();
-                rD = ascensionNum(g, h)
+                that = that
+                rD = ascensionNum(g, h, that)
                 ascensionMoraSum = 0;
-                if (that.判定突破后选() == true) {
-                    var breakthrough = 0
-                } else {
-                    var breakthrough = 1
-                }
-                var NumStart = rD.aNumStart
-                if (that.判定突破前选() == false) {
-                    NumStart = NumStart + 1
-                    breakthrough = breakthrough + 1
-                }
-                for (var i = breakthrough; i < rD.aDifference + 1; i++) {
-                    ascensionMoraSum = ascensionMoraSum + roleDataTable.角色突破素材[NumStart].摩拉;
-                    NumStart = Number(NumStart) + 1;
+                for (var i = 0; i < rD.aDifference + 1; i++) {
+                    ascensionMoraSum = ascensionMoraSum + roleDataTable.角色突破素材[rD.aNumStart].摩拉;
+                    rD.aNumStart = Number(rD.aNumStart) + 1;
                 };
                 ascensionMoraSum = ascensionMoraSum * that.角色数量()
                 return ascensionMoraSum;
@@ -1388,25 +1406,12 @@
                     return (that.总计摩拉() / 10000).toFixed(2) + 'w'
                 }
             })
-            this.需要紫书向上 = ko.computed(function () {
-                return Math.ceil(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
-            }, this)
-            this.需要紫书 = ko.computed(function () {
-                return Math.floor(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
-            }, this)
-            this.需要红书 = ko.computed(function () {
-                var expSurplus = this.角色总计经验() % roleDataTable.经验书经验表["大英雄的经验"];//紫书剩的经验
-                return Math.floor(expSurplus / roleDataTable.经验书经验表["冒险家的经验"]);//红书数量向下取整
-            }, this)
-            this.需要白书 = ko.computed(function () {
-                var expSurplus = this.角色总计经验() % roleDataTable.经验书经验表["冒险家的经验"];//红书剩的经验
-                return Math.ceil(expSurplus / roleDataTable.经验书经验表["流浪者的经验"]);//白书数量向上取整
-            }, this)
 
             jewelsNum = function (that, t) {
                 g = that.当前等级();
                 h = that.目标等级();
-                rD = ascensionNum(g, h);
+                that = that
+                rD = ascensionNum(g, h, that);
                 num = 0;
                 for (var i = 0; i < rD.aDifference + 1; i++) {
                     var data = eval('roleDataTable.角色突破素材[rD.aNumStart].' + t);
@@ -1452,7 +1457,6 @@
             this.怪物素材3 = ko.computed(function () {
                 return jewelsNum(that, '怪物素材3') !== 0
             });
-            // this.jewelsC元素石2 = ko.observable(true);
             this.元素石2种类 = ko.observable('https://patchwiki.biligame.com/images/ys/e/e3/33ihwl18ka7fcy8pixtywg7aumqq5o4.png');
             this.元素石3种类 = ko.observable('https://patchwiki.biligame.com/images/ys/b/bb/hne6m4m9o0ef9u5pgdjfluoluzfap38.png');
             this.元素石4种类 = ko.observable('https://patchwiki.biligame.com/images/ys/f/f4/06os7urnih57a65o60djxvkjrmh22ep.png');
@@ -1463,17 +1467,34 @@
             this.怪物素材2种类 = ko.observable('https://patchwiki.biligame.com/images/ys/0/01/mzl8hoc1yc4af7ohn50ix0zovuyetdg.png');
             this.怪物素材3种类 = ko.observable('https://patchwiki.biligame.com/images/ys/3/35/1e7rgtc8wm2iab6z5pm2wwptsjjd1w3.png');
 
-            this.roleJewels = function () {
-                this.元素石2数量(jewelsNum(that, '元素石2'));
-                this.元素石3数量(jewelsNum(that, '元素石3'));
-                this.元素石4数量(jewelsNum(that, '元素石4'));
-                this.元素石5数量(jewelsNum(that, '元素石5'));
-                this.石头数量(jewelsNum(that, '石头'));
-                this.特产数量(jewelsNum(that, '特产'));
-                this.怪物素材1数量(jewelsNum(that, '怪物素材1'));
-                this.怪物素材2数量(jewelsNum(that, '怪物素材2'));
-                this.怪物素材3数量(jewelsNum(that, '怪物素材3'));
-            }
+            this.元素石2数量 = ko.computed(function () {
+                return jewelsNum(that, '元素石2')
+            })
+            this.元素石3数量 = ko.computed(function () {
+                return jewelsNum(that, '元素石3')
+            })
+            this.元素石4数量 = ko.computed(function () {
+                return jewelsNum(that, '元素石4')
+            })
+            this.元素石5数量 = ko.computed(function () {
+                return jewelsNum(that, '元素石5')
+            })
+            this.石头数量 = ko.computed(function () {
+                return jewelsNum(that, '石头')
+            })
+            this.特产数量 = ko.computed(function () {
+                return jewelsNum(that, '特产')
+            })
+            this.怪物素材1数量 = ko.computed(function () {
+                return jewelsNum(that, '怪物素材1')
+            })
+            this.怪物素材2数量 = ko.computed(function () {
+                return jewelsNum(that, '怪物素材2')
+            })
+            this.怪物素材3数量 = ko.computed(function () {
+                return jewelsNum(that, '怪物素材3')
+            })
+
             this.roleOn = function () {
                 that.roleChoice(this.roleUrl);
                 that.roleC(false);
@@ -1487,20 +1508,12 @@
                 that.怪物素材1种类(this.怪物素材1名);
                 that.怪物素材2种类(this.怪物素材2名);
                 that.怪物素材3种类(this.怪物素材3名);
-                that.元素石2数量(jewelsNum(that, '元素石2'));
-                that.元素石3数量(jewelsNum(that, '元素石3'));
-                that.元素石4数量(jewelsNum(that, '元素石4'));
-                that.元素石5数量(jewelsNum(that, '元素石5'));
-                that.石头数量(jewelsNum(that, '石头'));
-                that.特产数量(jewelsNum(that, '特产'));
-                that.怪物素材1数量(jewelsNum(that, '怪物素材1'));
-                that.怪物素材2数量(jewelsNum(that, '怪物素材2'));
-                that.怪物素材3数量(jewelsNum(that, '怪物素材3'));
             };
         };
 
         function 武器(t) {
             that = this;
+            this.武器数量 = ko.observable(1)
             this.武器星级 = ko.observable(t);
             this.武器星级列表 = ["五星武器", "四星武器", "三星武器", "二星武器", "一星武器",];
             this.当前等级 = ko.observable(1);
@@ -1517,10 +1530,10 @@
                     expSum = expSum + WeaponDataTable.武器升级所需经验[武器星级][g];
                     g = g + 1;
                 };
-                return expSum
+                return expSum * this.武器数量()
             }, this);
             this.总计摩拉 = ko.computed(function () {
-                return Math.ceil(this.武器总计经验() / 10)
+                return Math.ceil(this.武器总计经验() / 10) * this.武器数量()
             }, this);
             this.需要精锻用魔矿 = ko.computed(function () {
                 return Math.ceil(this.武器总计经验() / WeaponDataTable.精锻矿经验表["精锻用魔矿"]);//紫书数量向下取整
@@ -1530,7 +1543,7 @@
         function 圣遗物(t) {
             that = this;
 
-
+            this.圣遗物数量 = ko.observable(1)
             this.圣遗物星级 = ko.observable(t);
             this.圣遗物星级列表 = ["五星圣遗物", "四星圣遗物", "三星圣遗物", "二星圣遗物", "一星圣遗物"];
             this.当前等级 = ko.observable(0);
@@ -1547,13 +1560,16 @@
                     expSum = expSum + reliquaryDataTable.圣遗物升级所需经验[圣遗物星级][g + 1];
                     g = g + 1;
                 };
-                return expSum
+                return expSum * this.圣遗物数量()
             }, this);
             this.总计摩拉 = ko.computed(function () {
-                return this.圣遗物总计经验()
+                return this.圣遗物总计经验() * this.圣遗物数量()
             }, this);
             this.需要五星圣遗物 = ko.computed(function () {
-                return Math.ceil(this.圣遗物总计经验() / reliquaryDataTable.圣遗物经验表["五星圣遗物"]);//紫书数量向下取整
+                return Math.ceil(this.圣遗物总计经验() / reliquaryDataTable.圣遗物经验表["五星圣遗物"]);
+            }, this)
+            this.需要四星圣遗物 = ko.computed(function () {
+                return Math.ceil(this.圣遗物总计经验() / reliquaryDataTable.圣遗物经验表["四星圣遗物"]);
             }, this)
         };
 
