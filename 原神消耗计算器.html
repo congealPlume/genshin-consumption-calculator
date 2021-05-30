@@ -1533,7 +1533,7 @@
                 return expSum * this.武器数量()
             }, this);
             this.总计摩拉 = ko.computed(function () {
-                return Math.ceil(this.武器总计经验() / 10) * this.武器数量()
+                return Math.ceil(this.武器总计经验() / 10)
             }, this);
             this.需要精锻用魔矿 = ko.computed(function () {
                 return Math.ceil(this.武器总计经验() / WeaponDataTable.精锻矿经验表["精锻用魔矿"]);//紫书数量向下取整
