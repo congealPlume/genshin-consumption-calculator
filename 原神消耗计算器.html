@@ -18,7 +18,7 @@
         <div class="panel panelRole">
             <div class="panelHeading panelHRole">角色升级消耗计算</div>
             <div class="">
-                <div class="row" data-bind="foreach: { data: 角色, as: '当前角色' }">
+                <div class="row rowCase" data-bind="foreach: { data: 角色, as: '当前角色' }">
                     <div class="col-xs-12 col-sm-6 col-lg-4">
                         <div class="modContainer">
                             <div class="SwitchCase">
@@ -170,6 +170,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="row rowCase">
+                    <div class="col-xs-3">
+                        <div class="modContainer"></div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="modContainer"></div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="modContainer">
+                            合计素材：<div class="" data-bind="text: 合计素材">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <span class="addCalculator col-xs-12" data-bind="click: 添加角色栏"></span>
                 </div>
@@ -178,7 +193,7 @@
         <div class="panel panelWeapon">
             <div class="panelHeading panelHWeapon">武器升级消耗计算</div>
             <div class="">
-                <div class="row" data-bind="foreach: { data: 武器, as:'当前武器' }">
+                <div class="row rowCase" data-bind="foreach: { data: 武器, as:'当前武器' }">
                     <div class="col-xs-12 col-sm-6 col-lg-4">
                         <div class="modContainer line">
                             <div class="row">
@@ -215,7 +230,7 @@
         <div class="panel panelArtifacts">
             <div class="panelHeading panelHArtifacts">圣遗物升级消耗计算</div>
             <div class="">
-                <div class="row" data-bind="foreach: { data: 圣遗物, as:'当前圣遗物'}">
+                <div class="row rowCase" data-bind="foreach: { data: 圣遗物, as:'当前圣遗物'}">
                     <div class="col-xs-12 col-sm-6 col-lg-4">
                         <div class="modContainer line">
                             <div class="row">
@@ -305,6 +320,15 @@
         margin: 0 0 15px 0;
     }
 
+    .rowCase {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .rowCase>div {
+        margin-bottom: 15px;
+    }
+
     .panelRole {
         border: #bce8f1 1px solid;
     }
@@ -334,8 +358,8 @@
 
     .modContainer {
         padding: 10px;
-        margin-bottom: 15px;
         border: 1px #ddd solid;
+        height: 100%;
     }
 
     .SwitchCase {
@@ -1262,6 +1286,22 @@
         },
     }
 
+    // var ee = [{ name: "", url: "" }]
+    // var aa = [{ name: 1, url: 2 }, { name: 3, url: 4 }, { name: 5, url: 6 }]
+    // var bb = [{ name: 3, url: 4 }]
+    // var cc = [{ name: 5, url: 6 }]
+    // var dd = [{ name: 1, url: 8 }]
+    // var abv = function () {
+    //     if (aa[0]["name"] == dd[0]["name"]) {
+    //         aa[0]['url'] = aa[0]['url'] + dd[0]['url']
+    //         return aa
+    //     } else {
+    //         return ee
+    //     }
+    // }
+    // console.log(aa.length);
+
+
     function AppViewModel() {
         var self = this;
 
@@ -1573,15 +1613,102 @@
             }, this)
         };
 
-
-        合计 = function () {
-
-        };
-
         self.角色 = ko.observableArray([new 角色(), new 角色()]);
         self.武器 = ko.observableArray([new 武器(武器星级 = "五星武器"), new 武器(武器星级 = "四星武器"), new 武器(武器星级 = "三星武器")]);
         self.圣遗物 = ko.observableArray([new 圣遗物(圣遗物星级 = "五星圣遗物"), new 圣遗物(圣遗物星级 = "四星圣遗物"),]);
 
+
+
+        var matNumCase = [{ url: "", name: "" }]
+
+
+        this.合计素材 = ko.computed(function () {
+            var matNumCase = [{ url: "", number: "" }]
+            materialsNum = function (h, t) {
+                // if (matNumCase.length == 1) {
+                //     matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
+                //     // console.log(matNumCase);
+                // } else {
+                //     for (var i in matNumCase.length) {
+                //         gh = 1
+                //         gh++
+                //         console.log(i);
+                //         console.log(gh);
+                //     }
+                // }
+                // matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
+
+                // var mL = matNumCase.length
+                // console.log('数组元素个数：' + mL);
+                // for (var i = 0; i < mL; i++) {
+                //     console.log('循环i值' + i);
+                //     if (eval('self.角色()[' + h + '].' + t + '种类()') == matNumCase[i]["url"]) {
+                //         matNumCase[i]["number"] = matNumCase[i]["number"] + eval('self.角色()[' + h + '].' + t + '数量()')
+                //     } else {
+                //         matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
+                //     }
+                //     console.log(matNumCase);
+                // }
+                matNumCase.some(arr => {
+                    if (arr.url === eval('self.角色()[' + h + '].' + t + '种类()')) {
+                        console.log('存在');
+                        matNumCase[i]["number"] = matNumCase[i]["number"] + eval('self.角色()[' + h + '].' + t + '数量()')
+                        console.log(matNumCase);
+                    } else {
+                        console.log('不存在');
+                        matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
+                        console.log(matNumCase);
+                    }
+                })
+                console.log(matNumCase);
+                console.log('数组个数：' + matNumCase.length);
+            }
+            for (var i in self.角色()) {
+                h = i
+                // console.log(h);
+
+                if (self.角色()[h].元素石2数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        // var h = 0
+                        console.log('h值：' + h);
+                        var t = '元素石2'
+                        materialsNum(h, t)
+                        // matNumCase = matNumCase.concat([{ url: self.角色()[h].元素石2种类(), number: self.角色()[h].元素石2数量() }])
+                        console.log(matNumCase);
+                    }
+                }
+                if (self.角色()[h].元素石3数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        // var h = 0
+                        console.log(matNumCase);
+
+                        console.log('h值：' + h);
+                        var t = '元素石3'
+                        materialsNum(h, t)
+                        // matNumCase = matNumCase.concat([{ url: self.角色()[h].元素石3种类(), number: self.角色()[h].元素石3数量() }])
+                        console.log(matNumCase);
+                    }
+                }
+                if (self.角色()[h].元素石4数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        console.log('h值：' + h);
+                        var t = '元素石4'
+                        // var g = 'url: self.角色()[h].' + t + ',' + 'number: self.角色()[h].' + h
+                        materialsNum(h, t)
+                        // matNumCase = matNumCase.concat([{ url: eval('self.角色()[h].' + t), number: eval('self.角色()[h].' + h) }])
+                        console.log(matNumCase);
+                    }
+                }
+            }
+
+            return console.log(matNumCase);
+
+        }, this)
+        // console.log(this.角色()[0].元素石4种类());
+
+        合计 = function () {
+
+        };
 
         添加角色栏 = function () {
             self.角色.push(new 角色());
