@@ -15,6 +15,93 @@
 
 <body>
     <div class="widgetContainer">
+        <div class="panel panelOwn">
+            <div class="row rowCase">
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <div class="col-xs-12 modContainer">
+                        <span>选择冒险等级</span>
+                        <select class=""
+                            data-bind="options: AscensionTable.世界资源表, value: 冒险等级, optionsText: '冒险等级'"></select><br>
+                        <div class="h4" style="float:left;margin-top: 32px;">您当前的世界等级为</div>
+                        <div class="h2" style="float:right;text-align:right" data-bind='text: 冒险等级().世界等级'></div>
+                    </div>
+                    <div class="col-xs-12 modContainer">
+                        <div class="h4" style="margin: 6px 0 18px 0">当前世界资源收益</div>
+                        <div class="line">
+                            <span class="">藏金之花</span>
+                            <span style="float:right" data-bind='text: 冒险等级().藏金之花奖励 + " 摩拉"'></span>
+                        </div>
+                        <div class="line">
+                            <span class="">启示之花</span>
+                            <span style="float:right"
+                                data-bind='text: 冒险等级().启示之花奖励下限 + " ~ " + 冒险等级().启示之花奖励上限 + " 经验"'></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <div class="modContainer">
+                        <div class="h4" style="margin: 6px 0 18px 0">现有资源</div>
+                        <div class="line">
+                            <span class="">摩拉</span>
+                            <span style="float:right">x&ensp;<input class="" type="number"
+                                    data-bind="value: 现有摩拉" /></span>
+                        </div>
+                        <hr style="margin: 12px 0;">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="line">
+                                    <span class="">角色经验素材</span>
+                                    <span style="float:right">
+                                        <span class="" data-bind="text: 现有角色经验"></span>
+                                    </span>
+                                </div>
+                                <div class="line">
+                                    <span class="" title="角色经验 +20000"
+                                        style="color:rgb(134,79,145);text-shadow: 0 0 rgb(134,79,145);">大英雄的经验</span>
+                                    <span>x&ensp;<input class="" type="number" data-bind="value: 现有大英雄的经验" /></span>
+                                </div>
+                                <div class="line">
+                                    <span class="" title="角色经验 +5000"
+                                        style="color:rgb(43 149 228);text-shadow: 0 0 rgb(43 149 228);">冒险家的经验</span>
+                                    <span>x&ensp;<input class="" type="number" data-bind="value: 现有冒险家的经验" /></span>
+                                </div>
+                                <div class="line">
+                                    <span class="" title="角色经验 +1000"
+                                        style="color:rgb(30 170 100);text-shadow: 0 0 rgb(30 170 100);">流浪者的经验</span>
+                                    <span>x&ensp;<input class="" type="number" data-bind="value: 现有流浪者的经验" /></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="line">
+                                    <span class="">武器经验素材</span>
+                                    <span>
+                                        <span class="" data-bind="text: 现有武器经验"></span>
+                                    </span>
+                                </div>
+                                <div class="line">
+                                    <span class="" title="武器经验 +10000"
+                                        style="color:rgb(43 149 228);text-shadow: 0 0 rgb(43 149 228);">蓝色武器
+                                        / 矿</span>
+                                    <span>x&ensp;<input class="" type="number" data-bind="value: 现有蓝矿" /></span>
+                                </div>
+                                <div class="line">
+                                    <span class="" title="武器经验 +2000"
+                                        style="color:rgb(30 170 100);text-shadow: 0 0 rgb(30 170 100);">绿色武器
+                                        / 矿</span>
+                                    <span>x&ensp;<input class="" type="number" data-bind="value: 现有绿矿" /></span>
+                                </div>
+                                <div class="line">
+                                    <span class="" title="武器经验 +400"
+                                        style="color:rgb(100 100 100);text-shadow: 0 0 rgb(100 100 100);">白色武器
+                                        / 矿</span>
+                                    <span>x&ensp;<input class="" type="number" data-bind="value: 现有白矿" /></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="panel panelRole">
             <div class="panelHeading panelHRole">角色升级消耗计算</div>
             <div class="">
@@ -179,7 +266,6 @@
                             <div class="matNumTitle">总计经验：</div>
                             <div class="" data-bind="text:角色合计经验"></div>
                             <div class="matNumTitle">需要经验书：</div>
-                            <!-- <div class="" data-bind="text:角色合计经验书"></div>-->
                             <div class="matNumCase" data-bind="foreach: 角色合计经验书">
                                 <div class="matCase">
                                     <div class="materialBox">
@@ -194,11 +280,11 @@
                         <div class="modContainer">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-12 col-lg-12">
-                                    <div class="matNumTitle">总计摩拉：</div>
+                                    <div class="matNumTitleRole">总计摩拉：</div>
                                     <div class="" data-bind="text:角色合计摩拉"></div>
                                 </div>
                                 <div class="col-xs-6 col-sm-12 col-lg-12">
-                                    <div class="matNumTitle">约等于：</div>
+                                    <div class="matNumTitleRole">约等于：</div>
                                     <div class="" data-bind="text:(角色合计摩拉() / 10000).toFixed(1) + 'w'"></div>
                                 </div>
                             </div>
@@ -206,7 +292,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-6">
                         <div class="modContainer">
-                            <div class="matNumTitle">总计素材：</div>
+                            <div class="matNumTitleRole">总计素材：</div>
                             <div class="matNumCase" data-bind="foreach: 角色合计素材">
                                 <div class="matCase">
                                     <div class="materialBox">
@@ -258,7 +344,7 @@
                 <div class="row rowCase">
                     <div class="col-xs-12 col-sm-6 col-lg-6">
                         <div class="modContainer">
-                            <div class="matNumTitle">需要精锻用魔矿：</div>
+                            <div class="matNumTitleWea">需要精锻用魔矿：</div>
                             <div class="" data-bind="text:武器合计魔矿"></div>
                         </div>
                     </div>
@@ -266,11 +352,11 @@
                         <div class="modContainer">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-12 col-lg-6">
-                                    <div class="matNumTitle">总计摩拉：</div>
+                                    <div class="matNumTitleWea">总计摩拉：</div>
                                     <div class="" data-bind="text:武器合计摩拉"></div>
                                 </div>
                                 <div class="col-xs-6 col-sm-12 col-lg-6">
-                                    <div class="matNumTitle">约等于：</div>
+                                    <div class="matNumTitleWea">约等于：</div>
                                     <div class="" data-bind="text:(武器合计摩拉() / 10000).toFixed(1) + 'w'"></div>
                                 </div>
                             </div>
@@ -317,11 +403,11 @@
                         <div class="modContainer">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-12 col-lg-6">
-                                    <div class="matNumTitle">需要五星圣遗物：</div>
+                                    <div class="matNumTitleRelic">需要五星圣遗物：</div>
                                     <div class="" data-bind="text:圣遗物合计五星圣遗物"></div>
                                 </div>
                                 <div class="col-xs-6 col-sm-12 col-lg-6">
-                                    <div class="matNumTitle">或四星圣遗物：</div>
+                                    <div class="matNumTitleRelic">或四星圣遗物：</div>
                                     <div class="" data-bind="text:圣遗物合计四星圣遗物"></div>
                                 </div>
                             </div>
@@ -331,13 +417,123 @@
                         <div class="modContainer">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-12 col-lg-6">
-                                    <div class="matNumTitle">总计摩拉：</div>
+                                    <div class="matNumTitleRelic">总计摩拉：</div>
                                     <div class="" data-bind="text:圣遗物合计摩拉"></div>
                                 </div>
                                 <div class="col-xs-6 col-sm-12 col-lg-6">
-                                    <div class="matNumTitle">约等于：</div>
+                                    <div class="matNumTitleRelic">约等于：</div>
                                     <div class="" data-bind="text:(圣遗物合计摩拉() / 10000).toFixed(1) + 'w'"></div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panelNum">
+            <div class="panelHeading panelHNum">升级消耗合计</div>
+            <div class="row rowCase">
+                <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <div class="modContainer line">
+                        <div class="">
+                            <div class="">角色升级所需摩拉：</div>
+                            <div class="" data-bind='text: 角色合计摩拉()'></div>
+                        </div>
+                        <div class="">
+                            <div class="">武器升级所需摩拉：</div>
+                            <div class="" data-bind='text: "+  " + 武器合计摩拉()'></div>
+                        </div>
+                        <div class="">
+                            <div class="">圣遗物升级所需摩拉：</div>
+                            <div class="" data-bind='text: "+  " + 圣遗物合计摩拉()'></div>
+                        </div>
+                        <div class="">
+                            <div class="">现有摩拉：</div>
+                            <div class="" data-bind='text: "-  " + 现有摩拉()'></div>
+                        </div>
+                        <hr style="margin-bottom: 0">
+                        <div class="">
+                            <div class="">
+                                <div class="">所需摩拉合计：</div>
+                                <div class="" data-bind='text: 所需摩拉合计()'></div>
+                            </div>
+                            <div class="" style="text-align:right;color:#bbb;">
+                                预计需完成 <span class="fontBlod"
+                                    data-bind='text: Math.ceil(所需摩拉合计() / 冒险等级().藏金之花奖励)'></span>
+                                次藏金之花
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <div class="modContainer line">
+                        <div class="">
+                            <div class="">角色升级所需经验：</div>
+                            <div class="" data-bind='text: 角色合计经验()'></div>
+                        </div>
+                        <div class="">
+                            <div class="">现有经验：</div>
+                            <div class="" data-bind='text: "-  " + 现有角色经验()'></div>
+                        </div>
+                        <hr style="margin-bottom: 0">
+                        <div class="">
+                            <div class="">
+                                <div class="">角色所需经验合计：</div>
+                                <div class="" data-bind='text: 角色所需经验合计()'></div>
+                            </div>
+                            <div class="" style="text-align:right;color:#bbb;">
+                                <div class="">
+                                    需要大英雄的经验
+                                    <div class="">
+                                        <span class="fontBlod" data-bind='text:所需大英雄的经验'></span>本
+                                    </div>
+                                </div>
+                                <div class="">
+                                    预计需至多完成
+                                    <div class="">
+                                        <span class="fontBlod"
+                                            data-bind='text: Math.ceil(所需大英雄的经验()*20000 / 冒险等级().启示之花奖励下限)'></span>
+                                        次启示之花
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-lg-6">
+                    <div class="modContainer line">
+                        <div class="">
+                            <div class="">武器升级所需经验：</div>
+                            <div class="" data-bind='text: 武器合计经验()'></div>
+                        </div>
+                        <div class="">
+                            <div class="">现有矿石经验：</div>
+                            <div class="" data-bind='text: "-  " + 现有武器经验()'></div>
+                        </div>
+                        <hr style="margin-bottom: 0">
+                        <div class="">
+                            <div class="">
+                                <div class="">武器所需经验合计：</div>
+                                <div class="" data-bind='text: 武器所需经验合计()'></div>
+                            </div>
+                            <div class="" style="text-align:right;color:#bbb;">
+                                需要精锻用魔矿
+                                <div class="">
+                                    <span class="fontBlod" data-bind='text:所需精锻用魔矿'></span>个
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <div class="modContainer line">
+                            <div class="">消耗素材合计：</div>
+                        <div class="matNumCase" data-bind="foreach: 角色合计素材">
+                            <div class="matCase">
+                                <div class="materialBox">
+                                    <img data-bind="attr:{src: url}"></img>
+                                </div>
+                                <span data-bind="text: number"></span>
                             </div>
                         </div>
                     </div>
@@ -357,6 +553,24 @@
         margin: 0;
     }
 
+    input {
+        border-color: #ddd;
+        border-width: 0 0 1px 0;
+        outline: none;
+        height: 24px;
+        width: 24px;
+    }
+
+    .panelOwn .modContainer .col-sm-6 .line {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .panelOwn .modContainer .line input,
+    .panelOwn .modContainer .col-sm-6 .line input {
+        width: 50px;
+    }
+
     .roleChoiceCase hr {
         border-color: #31708f;
     }
@@ -367,13 +581,6 @@
 
     .widgetContainer .row [class^='col-'] {
         padding: 0 5px;
-    }
-
-    .widgetContainer input {
-        border-color: #ddd;
-        border-width: 0 0 1px 0;
-        outline: none;
-        height: 24px;
     }
 
     .widgetContainer select {
@@ -390,7 +597,7 @@
     }
 
     .panel {
-        padding: 0 0 15px 0;
+        /* padding: 0 0 15px 0; */
         border-radius: 5px;
         margin: 0 0 15px 0;
     }
@@ -408,6 +615,18 @@
     }
 
     .rowCase>div {
+        margin-bottom: 15px;
+    }
+
+    .panelOwn .rowcase div:nth-child(1) .modContainer:nth-child(1) {
+        height: 40%;
+    }
+
+    .panelOwn .rowcase div .modContainer:nth-child(2) {
+        height: calc(60% - 15px);
+    }
+
+    .panelOwn .rowcase div .modContainer:first-child {
         margin-bottom: 15px;
     }
 
@@ -438,8 +657,17 @@
         background: #caa373;
     }
 
+    .panelNum {
+        border: #8b84dc 1px solid;
+    }
+
+    .panelHNum {
+        color: #5d4fc5;
+        background: #a29bfe;
+    }
+
     .modContainer {
-        padding: 10px;
+        padding: 10px !important;
         border: 1px #ddd solid;
         height: 100%;
     }
@@ -529,9 +757,9 @@
         line-height: 2.5em;
     }
 
-    .containerInput {
+    /* .containerInput {
         width: 20px;
-    }
+    } */
 
     .rolePortrait {
         height: 50px;
@@ -569,10 +797,23 @@
         justify-content: flex-start;
     }
 
-    .matNumTitle {
+    .matNumTitleRole,
+    .matNumTitleWea,
+    .matNumTitleRelic {
         font-size: 15px;
         font-weight: bold;
+    }
+
+    .matNumTitleRole {
         color: #31708f;
+    }
+
+    .matNumTitleWea {
+        color: #694a5d;
+    }
+
+    .matNumTitleRelic {
+        color: #544431;
     }
 
     .matNumCase {
@@ -585,6 +826,42 @@
         align-items: center;
         align-content: center;
         justify-content: flex-start;
+    }
+
+    .fontBlod {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #000;
+    }
+
+    .panelNum .rowCase div:nth-child(4) .modContainer .matNumCase {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .panelNum .rowCase div:nth-child(1) .modContainer div:nth-child(6) div:nth-child(1),
+    .panelNum .rowCase div:nth-child(2) .modcontainer div:nth-child(4) div:nth-child(1),
+    .panelNum .rowCase div:nth-child(2) .modcontainer div:nth-child(4) div:nth-child(2) div,
+    .panelNum .rowCase div:nth-child(3) .modcontainer div:nth-child(4) div:nth-child(1),
+    .panelNum .rowCase div:nth-child(3) .modcontainer div:nth-child(4) div:nth-child(2),
+    .panelNum .modContainer>div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .panelNum .rowCase div:nth-child(1) .modcontainer div:nth-child(6),
+    .panelNum .rowCase div:nth-child(2) .modcontainer div:nth-child(4),
+    .panelNum .rowCase div:nth-child(3) .modContainer div:nth-child(4) {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .panelNum .rowCase div:nth-child(1) .modContainer div:first-child div:nth-child(2),
+    .panelNum .rowCase div:nth-child(2) .modContainer div:first-child div:nth-child(2),
+    .panelNum .rowCase div:nth-child(3) .modContainer div:first-child div:nth-child(2) {
+        font-size: 18px;
+        font-weight: bold;
     }
 
     input[type="number"] {
@@ -649,7 +926,19 @@
             混沌: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/0/08/sju41om8712i1sfeyazkf7emoql1q9j.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/9/92/oxaq6anbkm12m0anwgrw30g80b12c00.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/2/26/b5udlqlno8ohr59w90o4n35dqj6zzqi.png', },
             地脉: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/6/60/bff3rmg8d6qw2py60coafbvh574q258.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/8/87/7u3s55k45bw2tjlmwjnpzb5nrlo8y1n.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/8/82/qlh67wilpv6jaic34tauaojv5b6e89n.png', },
             号角: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/3/37/1lwe7z3jnxmcri4hisqpohcceztxk44.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/c/ca/g2wbfst2nxkv7i7istzjmqnablj7iyx.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/d/dc/15h9ww1ojsi7uct3xo7wb45gvlo1150.png', },
-        }
+        },
+        世界资源表: [
+            { "冒险等级": 0, "世界等级": 0, "藏金之花奖励": 12000, "启示之花奖励下限": 22000, "启示之花奖励上限": 28000 },
+            { "冒险等级": 20, "世界等级": 1, "藏金之花奖励": 20000, "启示之花奖励下限": 35000, "启示之花奖励上限": 42000 },
+            { "冒险等级": 25, "世界等级": 2, "藏金之花奖励": 28000, "启示之花奖励下限": 50000, "启示之花奖励上限": 55000 },
+            { "冒险等级": 30, "世界等级": 3, "藏金之花奖励": 36000, "启示之花奖励下限": 65000, "启示之花奖励上限": 70000 },
+            { "冒险等级": 35, "世界等级": 4, "藏金之花奖励": 44000, "启示之花奖励下限": 70000, "启示之花奖励上限": 95000 },
+            { "冒险等级": 40, "世界等级": 5, "藏金之花奖励": 52000, "启示之花奖励下限": 90000, "启示之花奖励上限": 115000 },
+            { "冒险等级": 45, "世界等级": 6, "藏金之花奖励": 60000, "启示之花奖励下限": 110000, "启示之花奖励上限": 135000 },
+            { "冒险等级": 50, "世界等级": 7, "藏金之花奖励": 60000, "启示之花奖励下限": 110000, "启示之花奖励上限": 135000 },
+            { "冒险等级": 55, "世界等级": 8, "藏金之花奖励": 60000, "启示之花奖励下限": 110000, "启示之花奖励上限": 135000 },
+            { "冒险等级": 60, "世界等级": 9, "藏金之花奖励": 60000, "启示之花奖励下限": 110000, "启示之花奖励上限": 135000 }
+        ]
     }
     var roleDataTable = {
         角色升级所需经验表: {
@@ -1777,6 +2066,15 @@
             return matNumCase;
         }, this)
 
+        // Expbook = function (t) {
+        //     var ExpboolF = Math.floor(t.角色合计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
+        //     var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["大英雄的经验"];//紫书剩的经验
+        //     var ExpboolS = Math.floor(expSurplus / roleDataTable.经验书经验表["冒险家的经验"]);//红书数量向下取整
+        //     var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["冒险家的经验"];//红书剩的经验
+        //     var ExpboolT = Math.ceil(expSurplus / roleDataTable.经验书经验表["流浪者的经验"]);//白书数量向上取整
+        //     return { ExpboolF, ExpboolS, ExpboolT }
+        // }
+
         this.角色合计经验 = ko.computed(function () {
             var Exp = 0
             for (var i in self.角色()) {
@@ -1785,20 +2083,24 @@
             return Exp
         }, this)
 
-        Expbook = function (t) {
-            var ExpboolF = Math.floor(t.角色合计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
-            var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["大英雄的经验"];//紫书剩的经验
-            var ExpboolS = Math.floor(expSurplus / roleDataTable.经验书经验表["冒险家的经验"]);//红书数量向下取整
-            var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["冒险家的经验"];//红书剩的经验
-            var ExpboolT = Math.ceil(expSurplus / roleDataTable.经验书经验表["流浪者的经验"]);//白书数量向上取整
-            return { ExpboolF, ExpboolS, ExpboolT }
-        }
-
         this.角色合计经验书 = ko.computed(function () {
+            var ExpboolF = 0
+            var ExpboolS = 0
+            var ExpboolT = 0
+            for (var i in self.角色()) {
+                ExpboolF = ExpboolF + self.角色()[i].需要紫书()
+            }
+            for (var i in self.角色()) {
+                ExpboolS = ExpboolS + self.角色()[i].需要红书()
+            }
+            for (var i in self.角色()) {
+                ExpboolT = ExpboolT + self.角色()[i].需要白书()
+            }
+            var t = { ExpboolF, ExpboolS, ExpboolT }
             var ExpNum = [
-                { url: "https://patchwiki.biligame.com/images/ys/7/76/e7jfrw3kdp4ronirvn896q5kgtijhyp.png", number: Expbook(this).ExpboolF },
-                { url: "https://patchwiki.biligame.com/images/ys/6/6f/0wtylybpjrp9na7iuzom8ikk4qahdwb.png", number: Expbook(this).ExpboolS },
-                { url: "https://patchwiki.biligame.com/images/ys/8/8b/07qi9gbqfgjglqhbel4ae13o7a8cyhi.png", number: Expbook(this).ExpboolT }
+                { url: "https://patchwiki.biligame.com/images/ys/7/76/e7jfrw3kdp4ronirvn896q5kgtijhyp.png", number: ExpboolF },
+                { url: "https://patchwiki.biligame.com/images/ys/6/6f/0wtylybpjrp9na7iuzom8ikk4qahdwb.png", number: ExpboolS },
+                { url: "https://patchwiki.biligame.com/images/ys/8/8b/07qi9gbqfgjglqhbel4ae13o7a8cyhi.png", number: ExpboolT }
             ]
             return ExpNum
         }, this)
@@ -1809,6 +2111,14 @@
                 mora = mora + self.角色()[i].总计摩拉()
             }
             return mora
+        }, this)
+
+        this.武器合计经验 = ko.computed(function () {
+            var t = 0
+            for (var i in self.武器()) {
+                t = t + self.武器()[i].武器总计经验()
+            }
+            return t
         }, this)
 
         this.武器合计魔矿 = ko.computed(function () {
@@ -1851,6 +2161,36 @@
             return t
         }, this)
 
+        this.冒险等级 = ko.observable(AscensionTable.世界资源表[6]);
+        this.现有摩拉 = ko.observable('0')
+        this.现有大英雄的经验 = ko.observable('')
+        this.现有冒险家的经验 = ko.observable('')
+        this.现有流浪者的经验 = ko.observable('')
+        this.现有蓝矿 = ko.observable('')
+        this.现有绿矿 = ko.observable('')
+        this.现有白矿 = ko.observable('')
+
+        this.现有角色经验 = ko.computed(function () {
+            return Number(self.现有大英雄的经验()) * 20000 + Number(self.现有冒险家的经验()) * 5000 + Number(self.现有流浪者的经验()) * 1000;
+        }, this);
+        this.现有武器经验 = ko.computed(function () {
+            return Number(self.现有蓝矿()) * 10000 + Number(self.现有绿矿()) * 2000 + Number(self.现有白矿()) * 400;
+        }, this);
+        this.所需大英雄的经验 = ko.computed(function () {
+            return self.角色合计经验书()[0]["number"] - self.现有大英雄的经验() + Math.ceil(((self.角色合计经验书()[1]["number"] - self.现有冒险家的经验()) * 5000 + (self.角色合计经验书()[2]["number"] - self.现有流浪者的经验()) * 1000) / 20000)
+        })
+        this.所需摩拉合计 = ko.computed(function () {
+            return Math.max(self.角色合计摩拉() + self.武器合计摩拉() + self.圣遗物合计摩拉() - self.现有摩拉(), 0);
+        }, this);
+        this.角色所需经验合计 = ko.computed(function () {
+            return Math.max(self.角色合计经验() - self.现有角色经验(), 0);
+        }, this);
+        this.武器所需经验合计 = ko.computed(function () {
+            return Math.max(self.武器合计经验() - self.现有武器经验(), 0);
+        }, this);
+        this.所需精锻用魔矿 = ko.computed(function () {
+            return Math.ceil(self.武器所需经验合计() / 10000)
+        })
 
         添加角色栏 = function () {
             self.角色.push(new 角色());
