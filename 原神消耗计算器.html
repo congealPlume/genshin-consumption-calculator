@@ -171,22 +171,52 @@
                     </div>
                 </div>
                 <div class="row rowCase">
-                    <div class="col-xs-3">
-                        <div class="modContainer"></div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="modContainer"></div>
-                    </div>
-                    <div class="col-xs-6">
+                    <span class="addCalculator col-xs-12" data-bind="click: 添加角色栏"></span>
+                </div>
+                <div class="row rowCase">
+                    <div class="col-xs-12 col-sm-4 col-lg-3">
                         <div class="modContainer">
-                            合计素材：<div class="" data-bind="text: 合计素材">
-
+                            <div class="matNumTitle">总计经验：</div>
+                            <div class="" data-bind="text:角色合计经验"></div>
+                            <div class="matNumTitle">需要经验书：</div>
+                            <!-- <div class="" data-bind="text:角色合计经验书"></div>-->
+                            <div class="matNumCase" data-bind="foreach: 角色合计经验书">
+                                <div class="matCase">
+                                    <div class="materialBox">
+                                        <img data-bind="attr:{src: url}"></img>
+                                    </div>x
+                                    <span data-bind="text: number"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <span class="addCalculator col-xs-12" data-bind="click: 添加角色栏"></span>
+                    <div class="col-xs-12 col-sm-2 col-lg-3">
+                        <div class="modContainer">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-12 col-lg-12">
+                                    <div class="matNumTitle">总计摩拉：</div>
+                                    <div class="" data-bind="text:角色合计摩拉"></div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 col-lg-12">
+                                    <div class="matNumTitle">约等于：</div>
+                                    <div class="" data-bind="text:(角色合计摩拉() / 10000).toFixed(1) + 'w'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="modContainer">
+                            <div class="matNumTitle">总计素材：</div>
+                            <div class="matNumCase" data-bind="foreach: 角色合计素材">
+                                <div class="matCase">
+                                    <div class="materialBox">
+                                        <img data-bind="attr:{src: url}"></img>
+                                    </div>
+                                    <span data-bind="text: number"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -222,8 +252,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row rowCase">
                     <span class="addCalculator col-xs-12" data-bind="click: 添加武器栏"></span>
+                </div>
+                <div class="row rowCase">
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="modContainer">
+                            <div class="matNumTitle">需要精锻用魔矿：</div>
+                            <div class="" data-bind="text:武器合计魔矿"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="modContainer">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-12 col-lg-6">
+                                    <div class="matNumTitle">总计摩拉：</div>
+                                    <div class="" data-bind="text:武器合计摩拉"></div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 col-lg-6">
+                                    <div class="matNumTitle">约等于：</div>
+                                    <div class="" data-bind="text:(武器合计摩拉() / 10000).toFixed(1) + 'w'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -257,8 +309,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row rowCase">
                     <span class="addCalculator col-xs-12" data-bind="click: 添加圣遗物栏"></span>
+                </div>
+                <div class="row rowCase">
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="modContainer">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-12 col-lg-6">
+                                    <div class="matNumTitle">需要五星圣遗物：</div>
+                                    <div class="" data-bind="text:圣遗物合计五星圣遗物"></div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 col-lg-6">
+                                    <div class="matNumTitle">或四星圣遗物：</div>
+                                    <div class="" data-bind="text:圣遗物合计四星圣遗物"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                        <div class="modContainer">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-12 col-lg-6">
+                                    <div class="matNumTitle">总计摩拉：</div>
+                                    <div class="" data-bind="text:圣遗物合计摩拉"></div>
+                                </div>
+                                <div class="col-xs-6 col-sm-12 col-lg-6">
+                                    <div class="matNumTitle">约等于：</div>
+                                    <div class="" data-bind="text:(圣遗物合计摩拉() / 10000).toFixed(1) + 'w'"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -440,6 +522,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 15px;
     }
 
     .line {
@@ -486,6 +569,23 @@
         justify-content: flex-start;
     }
 
+    .matNumTitle {
+        font-size: 15px;
+        font-weight: bold;
+        color: #31708f;
+    }
+
+    .matNumCase {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .matCase {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-start;
+    }
 
     input[type="number"] {
         -moz-appearance: textfield;
@@ -1286,28 +1386,8 @@
         },
     }
 
-    // var ee = [{ name: "", url: "" }]
-    // var aa = [{ name: 1, url: 2 }, { name: 3, url: 4 }, { name: 5, url: 6 }]
-    // var bb = [{ name: 3, url: 4 }]
-    // var cc = [{ name: 5, url: 6 }]
-    // var dd = [{ name: 1, url: 8 }]
-    // var abv = function () {
-    //     if (aa[0]["name"] == dd[0]["name"]) {
-    //         aa[0]['url'] = aa[0]['url'] + dd[0]['url']
-    //         return aa
-    //     } else {
-    //         return ee
-    //     }
-    // }
-    // console.log(aa.length);
-
-
     function AppViewModel() {
         var self = this;
-
-        // var tar = function () {
-        //     Object.assign()
-        // };
 
         function 角色() {
             var that = this;
@@ -1365,12 +1445,11 @@
                 if (that.roleCount() == false) {
                     expSum = expSum * that.角色数量()
                 }
-                // expData = { expSum, expShow: Math.ceil(expSum / 10000) }
                 return expSum
             }, this);
 
             this.需要紫书向上 = ko.computed(function () {
-                return Math.ceil(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
+                return Math.ceil(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向上取整
             }, this)
             this.需要紫书 = ko.computed(function () {
                 return Math.floor(this.角色总计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
@@ -1385,7 +1464,6 @@
             }, this)
 
             this.升级摩拉 = ko.computed(function () {
-                // return this.角色总计经验() / 5
                 return that.需要紫书() * 4000 + that.需要红书() * 1000 + that.需要白书() * 200
             }, this);
 
@@ -1573,7 +1651,7 @@
                 return expSum * this.武器数量()
             }, this);
             this.总计摩拉 = ko.computed(function () {
-                return Math.ceil(this.武器总计经验() / 10) * this.武器数量()
+                return Math.ceil(this.武器总计经验() / 10)
             }, this);
             this.需要精锻用魔矿 = ko.computed(function () {
                 return Math.ceil(this.武器总计经验() / WeaponDataTable.精锻矿经验表["精锻用魔矿"]);//紫书数量向下取整
@@ -1603,7 +1681,7 @@
                 return expSum * this.圣遗物数量()
             }, this);
             this.总计摩拉 = ko.computed(function () {
-                return this.圣遗物总计经验() * this.圣遗物数量()
+                return this.圣遗物总计经验()
             }, this);
             this.需要五星圣遗物 = ko.computed(function () {
                 return Math.ceil(this.圣遗物总计经验() / reliquaryDataTable.圣遗物经验表["五星圣遗物"]);
@@ -1619,96 +1697,160 @@
 
 
 
-        var matNumCase = [{ url: "", name: "" }]
 
-
-        this.合计素材 = ko.computed(function () {
-            var matNumCase = [{ url: "", number: "" }]
+        this.角色合计素材 = ko.computed(function () {
+            // 合并所有素材
+            var matNumCase = []
             materialsNum = function (h, t) {
-                // if (matNumCase.length == 1) {
-                //     matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
-                //     // console.log(matNumCase);
-                // } else {
-                //     for (var i in matNumCase.length) {
-                //         gh = 1
-                //         gh++
-                //         console.log(i);
-                //         console.log(gh);
-                //     }
-                // }
-                // matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
-
-                // var mL = matNumCase.length
-                // console.log('数组元素个数：' + mL);
-                // for (var i = 0; i < mL; i++) {
-                //     console.log('循环i值' + i);
-                //     if (eval('self.角色()[' + h + '].' + t + '种类()') == matNumCase[i]["url"]) {
-                //         matNumCase[i]["number"] = matNumCase[i]["number"] + eval('self.角色()[' + h + '].' + t + '数量()')
-                //     } else {
-                //         matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
-                //     }
-                //     console.log(matNumCase);
-                // }
-                matNumCase.some(arr => {
-                    if (arr.url === eval('self.角色()[' + h + '].' + t + '种类()')) {
-                        console.log('存在');
-                        matNumCase[i]["number"] = matNumCase[i]["number"] + eval('self.角色()[' + h + '].' + t + '数量()')
-                        console.log(matNumCase);
-                    } else {
-                        console.log('不存在');
-                        matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
-                        console.log(matNumCase);
+                var mL = matNumCase.length
+                var matNumCT = '不存在'
+                for (var i in matNumCase) {
+                    if (eval('self.角色()[' + h + '].' + t + '种类()') == matNumCase[i]["url"]) {
+                        var matNumCT = '存在'
+                        break
                     }
-                })
-                console.log(matNumCase);
-                console.log('数组个数：' + matNumCase.length);
+                }
+                if (matNumCT == '存在') {
+                    matNumCase[i]["number"] = matNumCase[i]["number"] + eval('self.角色()[' + h + '].' + t + '数量()')
+                } else {
+                    matNumCase = matNumCase.concat([{ url: eval('self.角色()[' + h + '].' + t + '种类()'), number: eval('self.角色()[' + h + '].' + t + '数量()') }])
+                }
             }
+            // 判断是否用了这个素材
             for (var i in self.角色()) {
                 h = i
-                // console.log(h);
-
                 if (self.角色()[h].元素石2数量() !== 0) {
                     if (self.角色()[h].roleCount() == true) {
-                        // var h = 0
-                        console.log('h值：' + h);
                         var t = '元素石2'
                         materialsNum(h, t)
-                        // matNumCase = matNumCase.concat([{ url: self.角色()[h].元素石2种类(), number: self.角色()[h].元素石2数量() }])
-                        console.log(matNumCase);
                     }
                 }
                 if (self.角色()[h].元素石3数量() !== 0) {
                     if (self.角色()[h].roleCount() == true) {
-                        // var h = 0
-                        console.log(matNumCase);
-
-                        console.log('h值：' + h);
                         var t = '元素石3'
                         materialsNum(h, t)
-                        // matNumCase = matNumCase.concat([{ url: self.角色()[h].元素石3种类(), number: self.角色()[h].元素石3数量() }])
-                        console.log(matNumCase);
                     }
                 }
                 if (self.角色()[h].元素石4数量() !== 0) {
                     if (self.角色()[h].roleCount() == true) {
-                        console.log('h值：' + h);
                         var t = '元素石4'
-                        // var g = 'url: self.角色()[h].' + t + ',' + 'number: self.角色()[h].' + h
                         materialsNum(h, t)
-                        // matNumCase = matNumCase.concat([{ url: eval('self.角色()[h].' + t), number: eval('self.角色()[h].' + h) }])
-                        console.log(matNumCase);
+                    }
+                }
+                if (self.角色()[h].元素石5数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '元素石5'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].石头数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '石头'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].特产数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '特产'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].怪物素材1数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '怪物素材1'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].怪物素材2数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '怪物素材2'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].怪物素材3数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '怪物素材3'
+                        materialsNum(h, t)
                     }
                 }
             }
-
-            return console.log(matNumCase);
-
+            return matNumCase;
         }, this)
-        // console.log(this.角色()[0].元素石4种类());
 
-        合计 = function () {
+        this.角色合计经验 = ko.computed(function () {
+            var Exp = 0
+            for (var i in self.角色()) {
+                Exp = Exp + self.角色()[i].角色总计经验()
+            }
+            return Exp
+        }, this)
 
-        };
+        Expbook = function (t) {
+            var ExpboolF = Math.floor(t.角色合计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
+            var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["大英雄的经验"];//紫书剩的经验
+            var ExpboolS = Math.floor(expSurplus / roleDataTable.经验书经验表["冒险家的经验"]);//红书数量向下取整
+            var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["冒险家的经验"];//红书剩的经验
+            var ExpboolT = Math.ceil(expSurplus / roleDataTable.经验书经验表["流浪者的经验"]);//白书数量向上取整
+            return { ExpboolF, ExpboolS, ExpboolT }
+        }
+
+        this.角色合计经验书 = ko.computed(function () {
+            var ExpNum = [
+                { url: "https://patchwiki.biligame.com/images/ys/7/76/e7jfrw3kdp4ronirvn896q5kgtijhyp.png", number: Expbook(this).ExpboolF },
+                { url: "https://patchwiki.biligame.com/images/ys/6/6f/0wtylybpjrp9na7iuzom8ikk4qahdwb.png", number: Expbook(this).ExpboolS },
+                { url: "https://patchwiki.biligame.com/images/ys/8/8b/07qi9gbqfgjglqhbel4ae13o7a8cyhi.png", number: Expbook(this).ExpboolT }
+            ]
+            return ExpNum
+        }, this)
+
+        this.角色合计摩拉 = ko.computed(function () {
+            var mora = 0
+            for (var i in self.角色()) {
+                mora = mora + self.角色()[i].总计摩拉()
+            }
+            return mora
+        }, this)
+
+        this.武器合计魔矿 = ko.computed(function () {
+            var t = 0
+            for (var i in self.武器()) {
+                t = t + self.武器()[i].需要精锻用魔矿()
+            }
+            return t
+        }, this)
+
+        this.武器合计摩拉 = ko.computed(function () {
+            var t = 0
+            for (var i in self.武器()) {
+                t = t + self.武器()[i].总计摩拉()
+            }
+            return t
+        }, this)
+
+        this.圣遗物合计五星圣遗物 = ko.computed(function () {
+            var t = 0
+            for (var i in self.圣遗物()) {
+                t = t + self.圣遗物()[i].需要五星圣遗物()
+            }
+            return t
+        }, this)
+
+        this.圣遗物合计四星圣遗物 = ko.computed(function () {
+            var t = 0
+            for (var i in self.圣遗物()) {
+                t = t + self.圣遗物()[i].需要四星圣遗物()
+            }
+            return t
+        }, this)
+
+        this.圣遗物合计摩拉 = ko.computed(function () {
+            var t = 0
+            for (var i in self.圣遗物()) {
+                t = t + self.圣遗物()[i].总计摩拉()
+            }
+            return t
+        }, this)
+
 
         添加角色栏 = function () {
             self.角色.push(new 角色());
