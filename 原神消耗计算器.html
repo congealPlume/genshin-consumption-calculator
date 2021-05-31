@@ -527,7 +527,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-lg-12">
                     <div class="modContainer line">
-                            <div class="">消耗素材合计：</div>
+                        <div class="">消耗素材合计：</div>
                         <div class="matNumCase" data-bind="foreach: 角色合计素材">
                             <div class="matCase">
                                 <div class="materialBox">
@@ -597,7 +597,7 @@
     }
 
     .panel {
-        /* padding: 0 0 15px 0; */
+        padding: 0;
         border-radius: 5px;
         margin: 0 0 15px 0;
     }
@@ -1989,9 +1989,102 @@
 
         this.角色合计素材 = ko.computed(function () {
             // 合并所有素材
-            var matNumCase = []
+            var matNumCase = [
+                { url: 'https://patchwiki.biligame.com/images/ys/f/fe/fhl3mfam6r80i6mk4f1sathugp3hhpr.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/77/2sy6d19dbar0o33oh7wt440w8l5nntd.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/54/8i918hfgsup95pxnh5q3ggp4dqynpjm.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/b/bf/9x55ufx7dllssz1qqizcpv76tq49y4h.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/a/a3/060npuhqr8tnck14xq5iwx4wzhf4bw7.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/c6/q25a0nyini1p60xitvuhcenkm78auh6.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/50/44kq4sm3igt0zvfilm22n6yptwcxcti.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/3b/1ml1ixktuxwxmeaeh0p9vt2hq61i4ic.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e0/0ishctglzinmb8v3ql5j9x08j268jem.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/a/a3/a338b1l3liu9plqbhqeeveweyzbv4fs.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/ed/knha8z1vz04hcf3kx2k2eg2yw92859h.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/b/b4/aqv5zobgu2qmxud8knwiw544uv6v056.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e3/33ihwl18ka7fcy8pixtywg7aumqq5o4.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/b/bb/hne6m4m9o0ef9u5pgdjfluoluzfap38.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/f/f4/06os7urnih57a65o60djxvkjrmh22ep.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/f/f3/0pw2xspyujz5ww7h4kjr43f7z6tpx7x.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/54/9u4b6tuq9fs9s3oikqelq035slwdpxq.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/9c/ps8u1ard0n3fq2mkxe6wpcosyl5mp65.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/24/ncrq5ntikz1lwmgq15pp4edify3zkqj.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/b/b6/o5bqn0ln6mca2s1pjqskk069g3jv9yl.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/c9/6eod3x6p7sfe7mktw69orc5hzd83z5d.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/ed/3bl7l9myfgz42q952m0a0d500l1n3pl.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d4/435ht7wk1pxmyls6u8whx7x4go8nvg4.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/ea/ts5lx7m8cmnbflcuakec3se9d3rdj93.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/0d/0w4r3hxv5wrzl7g2wllbz8raxwxsahk.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d6/ggl7a1eug2qd8t2djlvqarblfnt4pn6.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/4/43/9ovlpn1blfraj33xgjs4pyeifiy8vtq.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/6/6a/9iotbmtfk9m4qe8i1ssxslpsyvtjqim.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/8/8b/fjbfe36xhci0tx58fp185t59xd1yttu.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/3b/chzflpjoyn10imhxztr4ooxry8m67xz.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/08/6thr9f2yc42a2anjmtmp7zubfmhmmow.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/34/eqaxtjmufw03mvwkf93jnd61q2c86fc.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/cb/pbsf66m054wxepn2kjqep4cjuzoot7m.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/35/6bmkjts1mjq9snk5p132ye4dwmle6yy.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/27/to7baafkfkydwwe9drekwltdu8utxhi.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/90/fk6wbgb721j7shhaeupowm8lxlwaxmb.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/c4/j9ztmg4efjma80znjn2qfo2l0yfz23h.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/01/mzl8hoc1yc4af7ohn50ix0zovuyetdg.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/35/1e7rgtc8wm2iab6z5pm2wwptsjjd1w3.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/1/1d/ne1cbrbnz2mjrnbjrupahbd6ol92uy5.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/a/a0/6ob1gcwam197xic53dfpzj9zpmxunm6.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e6/0v1znkde6h3247hl94btstcsvt19cg9.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e2/jtueex47yrd350mpe00a71kkyuocrs4.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/37/htogq14hk2td5om5mmw210ga0sqxv34.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/93/8nj7itkzocwhvigmnjdbl2qcslmoqfi.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/75/6yx9brm9eepa0jhk18w3evbpggmnhlx.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/50/18smdkqpkr4hz6vzxb52zsgx4tugud7.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/5c/evsz0bwo2q64j8mitrhfypodh5xaeye.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/5e/blazfu0uznx5pwk0534c352mv7dwdp8.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/6/62/n6s442gi4z1rbdps860lkgnuna17028.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/8/84/c0vuwf4z21sn2rt3j52i8qf8naetjrn.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/24/mk1vycpciunbi8qkcii7pidi84vcufa.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/6/67/cj75xu82ewdjzdum503yp3qnc3u0ogo.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d0/8a5ux9pwtym9a4315p4vnm44pkrkof8.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/74/bqda19xt87stahxibc6hqjr8398hh22.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/3d/mh5t6mmlcwo5lrn6moahskukw0u2owk.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d8/3jx41qe6nibimhfbl4ap122n7bh6f78.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/ee/73uy8pd8mxfmazpgu1t8ka4m7rqvfku.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/2d/rkpsq0mnhm66uggrut66t0m79ybesv4.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/4/45/fk98a54utf7ce5f01hupvnn8q8835g8.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e9/hi76kpe6q97r9yt5rhv2eb42p925es2.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/58/dpaqc6ba8z0ye2fumqzgv4oozvoxr9a.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/f/f0/bpi6qpma3bywy5bh51ge84d9biqm38i.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/23/97j0vi6if7e5cfz9i6enazc8za8e5ed.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/30/bl396oggarznh1lfozmzoq5w9nzgy0c.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/a/a1/bcdn9yxytxjussep24heepqfzh9elxx.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/08/sju41om8712i1sfeyazkf7emoql1q9j.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/92/oxaq6anbkm12m0anwgrw30g80b12c00.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/26/b5udlqlno8ohr59w90o4n35dqj6zzqi.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/6/60/bff3rmg8d6qw2py60coafbvh574q258.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/8/87/7u3s55k45bw2tjlmwjnpzb5nrlo8y1n.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/8/82/qlh67wilpv6jaic34tauaojv5b6e89n.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/37/1lwe7z3jnxmcri4hisqpohcceztxk44.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/ca/g2wbfst2nxkv7i7istzjmqnablj7iyx.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/dc/15h9ww1ojsi7uct3xo7wb45gvlo1150.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d7/rc6owg80n1334zt5ya3f2e6ook7rorz.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/6/6f/5vgq6kl8d1cuhu2dnmd09wj2ap1dpu0.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/1/17/mdfvcj0nvpu7jsjfjo3qfl8r0i5mbw9.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/a/aa/69jubj2n5adq8k8figvwhpz6giaqm7h.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e4/4fftcezow2ugkep97zx12q9en4pm77u.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/56/dyxkmgtv8r71zrtqh2ahld2vuee50h4.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/7c/ebceqlo2wco783j0kdhnpq04f0nnjmn.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/da/4kt802ppifz5vwmydgrjj3rmsdbx96o.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/7f/aim5f18p9pzcp30wn4wyqskdsriamfl.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/b/b9/pn0bq00bxai6d2fw22hryucfafqha0e.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/2a/jk8lnafd7v86gc0fnrf968au9sf3ify.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/09/qxctt5nfcb3t5z1sod01yrh5294oucn.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/dc/6gdyztdho4pi7psg9bxkq0ze6vkzg3p.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/0a/lawi0tnn11sz3ya8em24etb6xe6vgdz.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/95/t83h7eegnhz9l50wfx4vayajot9zloe.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d0/0yhnutyznh3w8tw51zy3xfhdx71ye9o.png', number: 0 }
+            ]
+            var cs = []
+
             materialsNum = function (h, t) {
-                var mL = matNumCase.length
                 var matNumCT = '不存在'
                 for (var i in matNumCase) {
                     if (eval('self.角色()[' + h + '].' + t + '种类()') == matNumCase[i]["url"]) {
@@ -2063,7 +2156,12 @@
                     }
                 }
             }
-            return matNumCase;
+            for (var i in matNumCase) {
+                if (eval(matNumCase[i]["number"] !== 0)) {
+                    cs = cs.concat([matNumCase[i]])
+                }
+            }
+            return cs;
         }, this)
 
         // Expbook = function (t) {
