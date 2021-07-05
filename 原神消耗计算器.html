@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
@@ -124,16 +124,16 @@
                                             </div>
                                             <input type="checkbox" style="display: none;" data-bind="checked: roleC" />
                                         </label>
-                                    </div>
-                                    <div class="" data-bind="if: roleC">
-                                        <div class="roleChoiceCase" name="roel" data-bind="foreach: roleData">
-                                            <span class="" data-bind="text:属性"></span>:
-                                            <div class="" data-bind="foreach: role">
-                                                <!-- <div class="" data-bind="text:roelName"></div> -->
-                                                <img class="rolePortrait"
-                                                    data-bind="attr:{src: roleUrl}, click: 当前角色.roleOn">
+                                        <div class="" data-bind="if: roleC">
+                                            <div class="roleChoiceCase" name="roel" data-bind="foreach: roleData">
+                                                <span class="" data-bind="text:属性"></span>:
+                                                <div class="" data-bind="foreach: role">
+                                                    <!-- <div class="" data-bind="text:roelName"></div> -->
+                                                    <img class="rolePortrait"
+                                                        data-bind="attr:{src: roleUrl}, click: 当前角色.roleOn">
+                                                </div>
+                                                <hr>
                                             </div>
-                                            <hr>
                                         </div>
                                     </div>
                                 </div>
@@ -158,12 +158,139 @@
                                         </label>
                                     </div>
                                 </div>
+
+                                <div class="line" data-bind="if: roleCount">
+                                    <div class="line" data-bind="ifnot:skillSwitch">
+                                        <hr>
+                                        <label style="padding: 0 0 0.5em 0;">
+                                            <div class="calculatorButton">天赋计算/关闭</div>
+                                            <input type="checkbox" style="display: none;"
+                                                data-bind="checked: skillSwitch" />
+                                        </label>
+                                        <div class="classInputCase line">
+                                            <div class="verticalFrame skill">
+                                                <div class="iconImg">
+                                                    <img data-bind="attr:{src: 技能1图标}">
+                                                </div>
+                                                <div class="">
+                                                    <input class="containerInput" type="number"
+                                                        data-bind="value: 技能1当前等级"
+                                                        oninput="if(value>10)value=10;if(value<1)value=1;" /> ~
+                                                    <input class="containerInput" type="number"
+                                                        data-bind="value: 技能1目标等级"
+                                                        oninput="if(value>10)value=10;if(value<1)value=1;" />
+                                                </div>
+                                                <div class="skillKey">A</div>
+                                            </div>
+                                            <div class="verticalFrame skill">
+                                                <div class="iconImg">
+                                                    <img data-bind="attr:{src: 技能2图标}">
+                                                </div>
+                                                <div class="">
+                                                    <input class="containerInput" type="number"
+                                                        data-bind="value: 技能2当前等级"
+                                                        oninput="if(value>10)value=10;if(value<1)value=1;" /> ~
+                                                    <input class="containerInput" type="number"
+                                                        data-bind="value: 技能2目标等级"
+                                                        oninput="if(value>10)value=10;if(value<1)value=1;" />
+                                                </div>
+                                                <div class="skillKey">E</div>
+                                            </div>
+                                            <div class="verticalFrame skill">
+                                                <div class="iconImg">
+                                                    <img data-bind="attr:{src: 技能3图标}">
+                                                </div>
+                                                <div class="">
+                                                    <input class="containerInput" type="number"
+                                                        data-bind="value: 技能3当前等级"
+                                                        oninput="if(value>10)value=10;if(value<1)value=1;" /> ~
+                                                    <input class="containerInput" type="number"
+                                                        data-bind="value: 技能3目标等级"
+                                                        oninput="if(value>10)value=10;if(value<1)value=1;" />
+                                                </div>
+                                                <div class="skillKey">Q</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">需要素材：</div>
+                                            <div class="col-xs-6">需要摩拉：<span class="" data-bind="text:技能摩拉数量"></span>
+                                            </div>
+                                        </div>
+                                        <div class="matNumCase">
+                                            <div class="matCase"
+                                                data-bind="if: 技能书2显示, style:{display: 技能书2显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能书2种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能书2数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能书3显示, style:{display: 技能书3显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能书3种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能书3数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能书4显示, style:{display: 技能书4显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能书4种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能书4数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能素材1显示, style:{display: 技能素材1显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能素材1种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能素材1数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能素材2显示, style:{display: 技能素材2显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能素材2种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能素材2数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能素材3显示, style:{display: 技能素材3显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能素材3种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能素材3数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能素材4显示, style:{display: 技能素材4显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能素材4种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能素材4数量 "></span>
+                                            </div>
+                                            <div class="matCase"
+                                                data-bind="if: 技能素材5显示, style:{display: 技能素材5显示()==true ?'flex':'none'}">
+                                                <div class="materialBox">
+                                                    <img data-bind="attr:{src: 技能素材5种类}"></img>
+                                                </div>x
+                                                <span data-bind="text:技能素材5数量 "></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <hr>
-                                <label>
-                                    <div class="calculatorButton">展开详细信息</div>
-                                    <input type="checkbox" style="display: none;"
-                                        data-bind="checked: InformationSwitch" />
-                                </label>
+                                <div class="classInputCase">
+                                    <label>
+                                        <div class="calculatorButton">展开详细信息</div>
+                                        <input type="checkbox" style="display: none;"
+                                            data-bind="checked: InformationSwitch" />
+                                    </label>
+                                    <div class="" data-bind="if: roleCount">
+                                        <label data-bind="if:skillSwitch">
+                                            <div class="calculatorButton">天赋计算/展开</div>
+                                            <input type="checkbox" style="display: none;"
+                                                data-bind="checked: skillSwitch" />
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="row line" data-bind="if: InformationSwitch">
                                     <div class="col-xs-6">需要经验：<span class="" data-bind="text: 需要经验"></span>
                                     </div>
@@ -173,17 +300,15 @@
                                     </div>
                                 </div>
                                 <div class="row line" data-bind="ifnot: InformationSwitch">
-                                    <div class="col-xs-6">升级所需摩拉：<span class="" data-bind="text: 升级摩拉"></span>
-                                    </div>
-                                    <div class="col-xs-6">突破所需摩拉：<span class="" data-bind="text: 突破摩拉"></span>
-                                    </div>
-                                    <div class="col-xs-6">总计需要摩拉：<span class="" data-bind="text: 总计摩拉"></span>
-                                    </div>
-                                    <div class="col-xs-6">总计需要经验：<span class="" data-bind="text: 角色总计经验"></span></div>
+                                    <div class="col-xs-6">升级所需摩拉：<span class="" data-bind="text: 升级摩拉"></span></div>
+                                    <div class="col-xs-6">突破所需摩拉：<span class="" data-bind="text: 突破摩拉"></span></div>
+                                    <div class="col-xs-6">天赋升级摩拉：<span class="" data-bind="text: 技能摩拉数量"></span></div>
+                                    <div class="col-xs-6">总计需要摩拉：<span class="" data-bind="text: 总计摩拉"></span></div>
+                                    <hr class="col-xs-12 shr">
                                     <div class="col-xs-6">需要大英雄的经验：<span class="" data-bind="text: 需要紫书"></span></div>
                                     <div class="col-xs-6">需要冒险家的经验：<span class="" data-bind="text: 需要红书"></span></div>
-                                    <div class="col-xs-6">需要流浪者的经验：<span class="" data-bind="text: 需要白书"></span>
-                                    </div>
+                                    <div class="col-xs-6">需要流浪者的经验：<span class="" data-bind="text: 需要白书"></span></div>
+                                    <div class="col-xs-6">总计需要经验：<span class="" data-bind="text: 角色总计经验"></span></div>
                                 </div>
                                 <div class="col-xs-12 line" data-bind="if: roleCount">
                                     需要素材：
@@ -297,7 +422,7 @@
                                 <div class="matCase">
                                     <div class="materialBox">
                                         <img data-bind="attr:{src: url}"></img>
-                                    </div>
+                                    </div>x
                                     <span data-bind="text: number"></span>
                                 </div>
                             </div>
@@ -532,7 +657,7 @@
                             <div class="matCase">
                                 <div class="materialBox">
                                     <img data-bind="attr:{src: url}"></img>
-                                </div>
+                                </div>x
                                 <span data-bind="text: number"></span>
                             </div>
                         </div>
@@ -549,6 +674,11 @@
         border-color: #ddd;
     }
 
+    .shr {
+        margin: 0;
+        padding: 0 !important;
+    }
+
     label {
         margin: 0;
     }
@@ -559,6 +689,26 @@
         outline: none;
         height: 24px;
         width: 24px;
+    }
+
+    .verticalFrame {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .skillKey {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 14px;
+        background: rgb(217 237 247 / 40%);
+        padding: 4px;
+        border-radius: 2px;
+
     }
 
     .panelOwn .modContainer .col-sm-6 .line {
@@ -666,6 +816,20 @@
         background: #a29bfe;
     }
 
+    .iconImg {
+        /* z-index: 3; */
+        width: 50px;
+        height: 50px;
+    }
+
+    .iconImg img {
+        width: 100%;
+    }
+
+    .skill>.iconImg {
+        padding: 0px;
+    }
+
     .modContainer {
         padding: 10px !important;
         border: 1px #ddd solid;
@@ -702,7 +866,6 @@
     }
 
     .classInput .calculatorButton {
-        line-height: 20px;
         padding: 2px 4px;
     }
 
@@ -716,6 +879,7 @@
         text-align: center;
         font-weight: bold;
         cursor: pointer;
+        line-height: 1.5em;
     }
 
     .roleChoiceCase {
@@ -728,7 +892,7 @@
         border-radius: 5px;
         font-weight: bold;
         left: 0;
-        z-index: 3;
+        z-index: 4;
     }
 
     .addCalculator::before {
@@ -893,6 +1057,7 @@
             玄岩之塔: { 石头名: 'https://patchwiki.biligame.com/images/ys/3/35/6bmkjts1mjq9snk5p132ye4dwmle6yy.png', },
             未熟之玉: { 石头名: 'https://patchwiki.biligame.com/images/ys/2/27/to7baafkfkydwwe9drekwltdu8utxhi.png', },
             晶凝之华: { 石头名: 'https://patchwiki.biligame.com/images/ys/9/90/fk6wbgb721j7shhaeupowm8lxlwaxmb.png', },
+            魔偶机心: { 石头名: 'https://patchwiki.biligame.com/images/ys/d/d8/12cpvzi4oqwl98y1mjyfugt8pa417vl.png', },
         },
         Local: {
             嘟嘟莲: { 特产名: 'https://patchwiki.biligame.com/images/ys/d/d7/rc6owg80n1334zt5ya3f2e6ook7rorz.png', },
@@ -911,6 +1076,7 @@
             琉璃袋: { 特产名: 'https://patchwiki.biligame.com/images/ys/0/0a/lawi0tnn11sz3ya8em24etb6xe6vgdz.png', },
             清心: { 特产名: 'https://patchwiki.biligame.com/images/ys/9/95/t83h7eegnhz9l50wfx4vayajot9zloe.png', },
             星螺: { 特产名: 'https://patchwiki.biligame.com/images/ys/d/d0/0yhnutyznh3w8tw51zy3xfhdx71ye9o.png', },
+            海灵芝: { 特产名: 'https://patchwiki.biligame.com/images/ys/1/11/an4y061g9i8897tb96x9baxf40d478a.png', },
         },
         Common: {
             花蜜: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/c/c4/j9ztmg4efjma80znjn2qfo2l0yfz23h.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/0/01/mzl8hoc1yc4af7ohn50ix0zovuyetdg.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/3/35/1e7rgtc8wm2iab6z5pm2wwptsjjd1w3.png', },
@@ -926,6 +1092,209 @@
             混沌: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/0/08/sju41om8712i1sfeyazkf7emoql1q9j.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/9/92/oxaq6anbkm12m0anwgrw30g80b12c00.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/2/26/b5udlqlno8ohr59w90o4n35dqj6zzqi.png', },
             地脉: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/6/60/bff3rmg8d6qw2py60coafbvh574q258.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/8/87/7u3s55k45bw2tjlmwjnpzb5nrlo8y1n.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/8/82/qlh67wilpv6jaic34tauaojv5b6e89n.png', },
             号角: { 怪物素材1名: 'https://patchwiki.biligame.com/images/ys/3/37/1lwe7z3jnxmcri4hisqpohcceztxk44.png', 怪物素材2名: 'https://patchwiki.biligame.com/images/ys/c/ca/g2wbfst2nxkv7i7istzjmqnablj7iyx.png', 怪物素材3名: 'https://patchwiki.biligame.com/images/ys/d/dc/15h9ww1ojsi7uct3xo7wb45gvlo1150.png', },
+        },
+        skillCommon: {
+            花蜜: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/c/c4/j9ztmg4efjma80znjn2qfo2l0yfz23h.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/0/01/mzl8hoc1yc4af7ohn50ix0zovuyetdg.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/3/35/1e7rgtc8wm2iab6z5pm2wwptsjjd1w3.png', },
+            面具: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/1/1d/ne1cbrbnz2mjrnbjrupahbd6ol92uy5.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/a/a0/6ob1gcwam197xic53dfpzj9zpmxunm6.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/e/e6/0v1znkde6h3247hl94btstcsvt19cg9.png', },
+            箭簇: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/e/e2/jtueex47yrd350mpe00a71kkyuocrs4.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/3/37/htogq14hk2td5om5mmw210ga0sqxv34.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/9/93/8nj7itkzocwhvigmnjdbl2qcslmoqfi.png', },
+            绘卷: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/7/75/6yx9brm9eepa0jhk18w3evbpggmnhlx.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/5/50/18smdkqpkr4hz6vzxb52zsgx4tugud7.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/5/5c/evsz0bwo2q64j8mitrhfypodh5xaeye.png', },
+            鸦印: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/5/5e/blazfu0uznx5pwk0534c352mv7dwdp8.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/6/62/n6s442gi4z1rbdps860lkgnuna17028.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/8/84/c0vuwf4z21sn2rt3j52i8qf8naetjrn.png', },
+            徽记: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/2/24/mk1vycpciunbi8qkcii7pidi84vcufa.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/6/67/cj75xu82ewdjzdum503yp3qnc3u0ogo.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/d/d0/8a5ux9pwtym9a4315p4vnm44pkrkof8.png', },
+            史莱姆: { 技能素材1名: 'https://patchwiki.biligame.com/images/ys/7/74/bqda19xt87stahxibc6hqjr8398hh22.png', 技能素材2名: 'https://patchwiki.biligame.com/images/ys/3/3d/mh5t6mmlcwo5lrn6moahskukw0u2owk.png', 技能素材3名: 'https://patchwiki.biligame.com/images/ys/d/d8/3jx41qe6nibimhfbl4ap122n7bh6f78.png', },
+        },
+        skillBook: {
+            自由: { 技能书2名: 'https://patchwiki.biligame.com/images/ys/8/89/72bd1io1kzx908ww19ifn9ddxad08tr.png', 技能书3名: 'https://patchwiki.biligame.com/images/ys/2/24/llwlzow1qm80z3d4qbrbpgyxtxfny55.png', 技能书4名: 'https://patchwiki.biligame.com/images/ys/7/7b/qqr3ea891i0e4pwylmq4qx33fwva19o.png', },
+            抗争: { 技能书2名: 'https://patchwiki.biligame.com/images/ys/2/2d/obztxb15m30cp42ym4kqybzp9du22ct.png', 技能书3名: 'https://patchwiki.biligame.com/images/ys/2/2e/62b4lm4eb3xe4ia2w2btgyn9x533uqv.png', 技能书4名: 'https://patchwiki.biligame.com/images/ys/9/9b/kb572qmk0guz3g6rphfqaic92ghaaao.png', },
+            诗文: { 技能书2名: 'https://patchwiki.biligame.com/images/ys/f/f3/9lhudak6xyej8cewbiv3i6elu5b9cu9.png', 技能书3名: 'https://patchwiki.biligame.com/images/ys/0/04/ltp4zdvywufpqhqvhbv9pzm9bmoryp4.png', 技能书4名: 'https://patchwiki.biligame.com/images/ys/1/17/42c4sjepxmph1oi3ewursnjff5qvntt.png', },
+            繁荣: { 技能书2名: 'https://patchwiki.biligame.com/images/ys/7/73/kf43vlemusictmf2mbhcfwuxyxfarbo.png', 技能书3名: 'https://patchwiki.biligame.com/images/ys/e/e0/r49lmoip2pyk8uceckabzoze8r8h97q.png', 技能书4名: 'https://patchwiki.biligame.com/images/ys/5/5d/mfl7jam6nvcprwas5ar873854u2xo3k.png', },
+            勤劳: { 技能书2名: 'https://patchwiki.biligame.com/images/ys/4/4d/g6ixeps45z8fqx2ov1vlcvb762bwn1y.png', 技能书3名: 'https://patchwiki.biligame.com/images/ys/4/48/izgaogazkdiesppvht9ag4izndibzhz.png', 技能书4名: 'https://patchwiki.biligame.com/images/ys/6/6c/otcuxr3dpy3p6ur5xd5kkm40wgeqf2u.png', },
+            黄金: { 技能书2名: 'https://patchwiki.biligame.com/images/ys/c/c5/57ouvui2qcg0wdlo6nrlx0jaq7imhzk.png', 技能书3名: 'https://patchwiki.biligame.com/images/ys/0/03/mub34524x3efaccl3bsp1turjnm50f9.png', 技能书4名: 'https://patchwiki.biligame.com/images/ys/5/5e/so6j6jbrn1nizustkc6gxc1vmd8lrzf.png', },
+        },
+        skillBoss: {
+            东风之翎: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/c/c3/pjs5u7kth7nuqygmlpf06l1w3346oia.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            东风之爪: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/9/9c/3p4ao8iyd50j84e7gwuggamo42yp8ea.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            东风的吐息: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/c/c0/dzqkfx0waps2rmwpfurnyscv4puq1aj.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            北风之尾: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/b/bf/ovcgxlvyb7h6d1r6ylnao9ay5wuik1b.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            北风之环: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/c/cf/dgbh5hoebc6tprq0bgt3y6pwjkv1czu.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            北风的魂匣: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/8/87/qcwcbn0xx1np6hmgaaxey1613p0l7k1.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            吞天之鲸·只角: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/e/ee/ob30hi1czpk2sbesaub6pmlswgwp6m0.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            魔王之刃·残片: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/d/dc/az2ef0snc9kfco8i3ikhti6274m3iwj.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            武炼之魂·孤影: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/f/f9/fcv0klshynz8stwwd8xny2zfjq4fgg7.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            龙王之冕: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/0/0b/6is8cna97fwc90hu2uatkarifug9r81.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            血玉之枝: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/1/1e/scq9n0c650n62lgdw1mg74eib9se7yr.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+            鎏金之鳞: { 技能素材4名: 'https://patchwiki.biligame.com/images/ys/3/3e/i0fuih9dix4dtxw96g51nbqqumtousp.png', 技能素材5名: 'https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png', },
+        },
+        skills: {
+            迪卢克: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/1/16/h7gybami3ptv3fndy0xfbk4k5haql9i.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/e/ee/jv8aheh80oawrad5dpubk1b2pjozxpu.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/9/90/r30i4kdwc3cn523sbzr1khq4azjypy1.png',
+            },
+            可莉: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/e/e6/ni0ifcrl2zuerggnky6y8ervntrwzef.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/5/57/8wn7b0mhqi7c3ybgi81w437eq6vrbdd.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/2/2b/0xdcw07dgplpicvzgmcdmpyerpbegzw.png',
+            },
+            胡桃: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/3/38/eluqinbhbdyqa7h8ejykfhv92xidfra.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/7/7d/kgqd9obuciuyxsml9k4rjru37o640d4.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/2/2f/9fcseuhdksebc4s7xhl62lyyfd7ksih.png',
+            },
+            安柏: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/0/01/9rc4gvv2ydlu8yguhb71fsnhyrekji6.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/b/b2/kfr7hgsl8jql97odzjswn83in1nl3cz.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/e/e0/dg4bw4vdjuu53f5w741miiv4y84fwit.png',
+            },
+            班尼特: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/4/43/p5sa7ly0coalzc8sv9wicsqadk0o336.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/1/10/8gl4bbs2n00gp1cbxj349lxfaeztm2m.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/5/5c/18ippzgvvlxpjap2bijjuxoo8mysi0o.png',
+            },
+            香菱: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/e/e9/kafclahqwlcivsu9cewrm958xm49e97.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/8/88/mi2xm1ud5i4s9t4k4mjvv0hubzrsr0u.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/f/f3/69v32b0d9v7y4jf0qk669om8s332kpv.png',
+            },
+            辛焱: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/5/5f/golb0jl9847mcn71gy6ukfhgav0rc1l.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/e/ee/3d2wyclpf3kzvmbb99qa8d3rpshsmuw.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/1/19/fxepwq7y1fnhniyudjcrvmc3gvnm7b0.png',
+            },
+            烟绯: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/9/9b/b9f32tpa7k3idlugry97nnottl3szvk.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/c/c4/qn5km9sbtaz8jjxl1spzdtqbbgpkdrw.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/e/ea/m57znf9pr5hxs6abspo9dz4wt2hdydd.png',
+            },
+
+            莫娜: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/5/5b/fmwsa9pkoe6eti4etsagamid41fyqj1.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/4/43/qdz8vhy5w4xl7w7aulava5tbm20ooi3.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/e/e9/418feg7215jhvutgyu4vhyxolcbaxul.png',
+            },
+            达达利亚: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/b/bc/66c21om2dt94ucqq8vvgiqujqpiehvx.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/2/24/kdncmi5a0t5khrjjj8fh4tpblkf52yh.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/1/15/kkgbz8bwjekhp4fasxbdwbyrl4zwxzc.png',
+            },
+            芭芭拉: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/d/db/d4cbmqkd4hwgd1y96exzktumfbzi1wm.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/2/22/b91t0kg38ypfczqxmw0wy46vdqj5j98.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/c/c3/loiqg7q3hinswr2csbrhy1xuj8qxdaq.png',
+            },
+            行秋: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/4/46/1f0ekjm1y0p898wbrv1imlfysfy19ba.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/3/31/m7dg1u7c76cvkv7qcek3679md7u39h4.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/7/7c/ip96f9l4cn8keagzw2jpbsd5dqamsmc.png',
+            },
+
+            琴: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/f/f1/ph0qseqyjwnw2dwwitu5tkcbu6fak06.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/a/aa/h563olnjqlpgmb6kp8cddrtnaadm6mk.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/0/0d/21cp4p168kdyom0vfs4lcpmqwpx8goq.png',
+            },
+            温迪: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/2/29/thwet28tbr60nqblxp29t7j6szuw5i7.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/a/a4/bi7u1pypf8qnjux1rmhtkkttdxd6rbj.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/2/22/oxyqnj0gpoel3jfs3sen9saho1umiqi.png',
+            },
+            魈: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/8/8a/84ve4jh40ybzpj4lyxpql41g83teqtu.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/9/91/0n0eybjefy3bwnjs65o3w8xic6cvlvp.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/f/fe/lmgt42fsxr4a92inyllpy4xzumpra6l.png',
+            },
+            枫原万叶: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/9/93/ra79uh2to7zyijuepz51pq4uz8wdsfg.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/9/97/ctgm7h4wuyb1pxhxzzoo5k32v3b977o.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/e/eb/srav9t52x524tc7bl2ihvz06n8xdw5z.png',
+            },
+            砂糖: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/9/97/qv0bwllvfbf9qe109ax8u7mxigl29b4.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/f/fe/hbzzfg21lhj09wq8vjt9hb0663ypfme.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/2/2b/q63ysrsy5gj5nap295z1oucjaivi856.png',
+            },
+
+            刻晴: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/2/26/t4ruhv20kbm42fvjno4wu6j6bphnp68.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/4/44/35h2yols01b2xqtb2wp72ow9c7vrbmn.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/8/82/nylylj92760f6sgwu9u7l2j94sbfi5x.png',
+            },
+            北斗: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/3/38/o2ly3ttdjlsq3kndlct3ne5ip24xp8j.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/6/61/9ydgixu4pxs7bazhpoe355vxd0wsbq8.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/2/26/rzdnpztynhw0thr66a8ffuj47jod75r.png',
+            },
+            丽莎: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/e/ef/48khwj0vl7mogs7sd3kdb7ad487f84g.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/6/61/33ndh5bnbsbsjq072irb7m9jqtlxy2y.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/5/59/8aualryxcoa37q1lk0cjpajrpzzv462.png',
+            },
+            雷泽: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/f/f3/t8qh78l8vxrpdeptcn4ni6x7nbg4int.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/b/bd/icjt8uo26af9fbygddu7k2994vuc0no.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/d/da/3w0cs9obq6jt6dxf6iokkaglliuyxtf.png',
+            },
+            菲谢尔: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/9/97/sgfmc3iu95b5s0myv5mn1k025zhc176.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/7/76/8vjngabd10k6x494cxogmvk45dw8sw9.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/e/ea/nyfhw9cimbj2fer9qawjmfzydidrk4v.png',
+            },
+
+            七七: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/4/43/5ber5mp5pka7bjz84m24uf08sst9qxk.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/8/88/lo7oifboz3vygrw4wruj3goyqso2f8n.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/d/d5/muzxa1npl7okp8wl3rr923ghtw2jjsm.png',
+            },
+            甘雨: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/2/26/p0dzzrse57ls5rrimdb593urliuc6z7.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/5/50/7zxf6ddx272977o9wgo24q165fxeudf.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/4/45/qg834wq41703ydxrddw2e2e0w3fexez.png',
+            },
+            优菈: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/a/a2/hjy5zmsjzadgiuxu31qkhc6uwhckqcl.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/7/7c/4u493eg49zm3hh5jdccp7n3br0mbv8q.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/d/d6/2fm75sihodj1s3et1p8qkexr8voi7hz.png',
+            },
+            凯亚: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/f/ff/5f9cnee2wk6oq1pb5blqjz8m7mdt8lp.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/4/42/fgsovwkhm3979n58sksakugpw50o4pr.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/f/f6/d37ikvsiwditts2xjfd7fjjps4g66sf.png',
+            },
+            重云: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/e/e9/60j2eslvsirkf5y5u3oxr9qmgxrrd8l.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/5/54/63axg2k1q1blhc2mcrbuj4h3v4oy3dp.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/f/f1/9d7mmgnayqzo7244bwumn5n5kz12f7a.png',
+            },
+            迪奥娜: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/5/54/gntiyvf5w9m6luv827p492a7cjmfbeu.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/0/0a/r2ec2c1z3598rkeytful163g0enk13y.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/6/66/gyp9i8rfzm0ovzxixjn7pk3hb1gm3ne.png',
+            },
+            罗莎莉亚: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/9/9f/45oejipbbkqv7zx20jr7p8pbq2rdq9e.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/f/fd/plufbbbg3qxdafjt481x6unhbp5vfpz.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/4/48/k472w41id9w0ev0fr5b96qp5nino5so.png',
+            },
+
+            钟离: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/e/e8/b41dh4y2xsn71ugij15gnw8uclrexew.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/8/8d/ndeo9y8ywtohqa18zdkciht619eimgm.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/0/06/p1qd4b4p5st0zy0x7o7tgkgecmtn2pg.png',
+            },
+            阿贝多: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/6/62/qd6ljixde6sprlvsta67o9fdjfe4ez1.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/3/3a/6mfipn0jbrmz26ffr80drahkrrca103.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/e/e5/ofs81272n2eur8hpcaysn1amuejpgvb.png',
+            },
+            诺艾尔: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/5/55/2sz0wrtqclobr0kwvbwa1frvyel9f92.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/1/1f/bdhh1vshhr9fxp3x9fgzwxuw4mlfoit.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/8/8c/l60565slz81rz5mslsfpjzku5xmrk3c.png',
+            },
+            凝光: {
+                技能1图标: 'https://patchwiki.biligame.com/images/ys/8/87/9wc6tvox9f4i5q5nmu68ge5ygdpgoaf.png',
+                技能2图标: 'https://patchwiki.biligame.com/images/ys/5/57/otr00it448b0lppkqcartyg3709j3ws.png',
+                技能3图标: 'https://patchwiki.biligame.com/images/ys/c/ce/6fq241hjcwrmdqlijdtglbgg11h1ddp.png',
+            },
         },
         世界资源表: [
             { "冒险等级": 0, "世界等级": 0, "藏金之花奖励": 12000, "启示之花奖励下限": 22000, "启示之花奖励上限": 28000 },
@@ -1047,75 +1416,79 @@
             { 等阶: 9, 摩拉: 0, 元素石2: 0, 元素石3: 0, 元素石4: 0, 元素石5: 0, 石头: 0, 特产: 0, 怪物素材1: 0, 怪物素材2: 0, 怪物素材3: 0, },
 
         ],
+        技能突破素材: [
+            { 等阶: 1, 摩拉: 0, 技能书2: 0, 技能书3: 0, 技能书4: 0, 技能素材1: 0, 技能素材2: 0, 技能素材3: 0, 技能素材4: 0, 技能素材5: 0, },
+            { 等阶: 2, 摩拉: 12500, 技能书2: 3, 技能书3: 0, 技能书4: 0, 技能素材1: 6, 技能素材2: 0, 技能素材3: 0, 技能素材4: 0, 技能素材5: 0, },
+            { 等阶: 3, 摩拉: 17500, 技能书2: 0, 技能书3: 2, 技能书4: 0, 技能素材1: 0, 技能素材2: 3, 技能素材3: 0, 技能素材4: 0, 技能素材5: 0, },
+            { 等阶: 4, 摩拉: 25000, 技能书2: 0, 技能书3: 4, 技能书4: 0, 技能素材1: 0, 技能素材2: 4, 技能素材3: 0, 技能素材4: 0, 技能素材5: 0, },
+            { 等阶: 5, 摩拉: 30000, 技能书2: 0, 技能书3: 6, 技能书4: 0, 技能素材1: 0, 技能素材2: 6, 技能素材3: 0, 技能素材4: 0, 技能素材5: 0, },
+            { 等阶: 6, 摩拉: 37000, 技能书2: 0, 技能书3: 9, 技能书4: 0, 技能素材1: 0, 技能素材2: 9, 技能素材3: 0, 技能素材4: 0, 技能素材5: 0, },
+            { 等阶: 7, 摩拉: 120000, 技能书2: 0, 技能书3: 0, 技能书4: 4, 技能素材1: 0, 技能素材2: 0, 技能素材3: 4, 技能素材4: 1, 技能素材5: 0, },
+            { 等阶: 8, 摩拉: 260000, 技能书2: 0, 技能书3: 0, 技能书4: 6, 技能素材1: 0, 技能素材2: 0, 技能素材3: 6, 技能素材4: 1, 技能素材5: 0, },
+            { 等阶: 9, 摩拉: 450000, 技能书2: 0, 技能书3: 0, 技能书4: 12, 技能素材1: 0, 技能素材2: 0, 技能素材3: 9, 技能素材4: 2, 技能素材5: 0, },
+            { 等阶: 10, 摩拉: 700000, 技能书2: 0, 技能书3: 0, 技能书4: 16, 技能素材1: 0, 技能素材2: 0, 技能素材3: 12, 技能素材4: 2, 技能素材5: 1, },
+        ],
         经验书经验表: {
             "流浪者的经验": 1000,
             "冒险家的经验": 5000,
             "大英雄的经验": 20000,
         },
-        元素石: {
-            火: { data: { 元素石2名: 'data/material/无背景-燃愿玛瑙碎屑.png', 元素石3名: 'data/material/无背景-燃愿玛瑙断片.png', 元素石4名: 'data/material/无背景-燃愿玛瑙块.png', 元素石5名: 'data/material/无背景-燃愿玛瑙.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, } },
-            水: { data: { 元素石2名: 'data/material/无背景-涤净青金碎屑.png', 元素石3名: 'data/material/无背景-涤净青金断片.png', 元素石4名: 'data/material/无背景-涤净青金块.png', 元素石5名: 'data/material/无背景-涤净青金.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, } },
-            风: { data: { 元素石2名: 'data/material/无背景-自在松石碎屑.png', 元素石3名: 'data/material/无背景-自在松石断片.png', 元素石4名: 'data/material/无背景-自在松石块.png', 元素石5名: 'data/material/无背景-自在松石.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, } },
-            雷: { data: { 元素石2名: 'data/material/无背景-最胜紫晶碎屑.png', 元素石3名: 'data/material/无背景-最胜紫晶断片.png', 元素石4名: 'data/material/无背景-最胜紫晶块.png', 元素石5名: 'data/material/无背景-最胜紫晶.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, } },
-            // 草:{data: { 元素石2名: 'data/material/无背景-燃愿玛瑙碎屑.png', 元素石3名: 'data/material/无背景-燃愿玛瑙断片.png', 元素石4名: 'data/material/无背景-燃愿玛瑙块.png', 元素石5名: 'data/material/无背景-燃愿玛瑙.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, }},
-            冰: { data: { 元素石2名: 'data/material/无背景-哀叙冰玉碎屑.png', 元素石3名: 'data/material/无背景-哀叙冰玉断片.png', 元素石4名: 'data/material/无背景-哀叙冰玉块.png', 元素石5名: 'data/material/无背景-哀叙冰玉.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, } },
-            岩: { data: { 元素石2名: 'data/material/无背景-坚牢黄玉碎屑.png', 元素石3名: 'data/material/无背景-坚牢黄玉断片.png', 元素石4名: 'data/material/无背景-坚牢黄玉块.png', 元素石5名: 'data/material/无背景-坚牢黄玉.png', 特产名: 0, 怪物素材1名: 0, 怪物素材2名: 0, 怪物素材3名: 0, } },
-        },
         角色数据表: [
             {
                 属性: "火", role: [
-                    Object.assign({ roelName: "迪卢克", roleUrl: "https://patchwiki.biligame.com/images/ys/9/94/mkpw3ljc2eoea75lhkyccu6mbsbiqnr.png", }, AscensionTable.Local.小灯草, AscensionTable.Local.小灯草, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.徽记),
-                    Object.assign({ roelName: "可莉", roleUrl: "https://patchwiki.biligame.com/images/ys/b/b1/rlnhn26076peuvah42o85o2pha5m7am.png", }, AscensionTable.Local.慕风蘑菇, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.绘卷),
-                    Object.assign({ roelName: "胡桃", roleUrl: "https://patchwiki.biligame.com/images/ys/1/19/6x5q4v3ovlgtd5pk7xlqxjdqv1gvf0a.png", }, AscensionTable.Local.霓裳花, AscensionTable.stone.未熟之玉, AscensionTable.jewels.火, AscensionTable.Common.花蜜),
-                    Object.assign({ roelName: "安柏", roleUrl: "https://patchwiki.biligame.com/images/ys/a/a7/c1hp9a87kti1ywjv7c5470e3dn0wxio.png", }, AscensionTable.Local.小灯草, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.箭簇),
-                    Object.assign({ roelName: "班尼特", roleUrl: "https://patchwiki.biligame.com/images/ys/a/a0/nd8jx8novy6974e5ez7bz9la04vajw8.png", }, AscensionTable.Local.风车菊, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.鸦印),
-                    Object.assign({ roelName: "香菱", roleUrl: "https://patchwiki.biligame.com/images/ys/c/cc/l5ae2erhaq8tn896a2yibndx5g7r5g5.png", }, AscensionTable.Local.绝云椒椒, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.史莱姆),
-                    Object.assign({ roelName: "辛焱", roleUrl: "https://patchwiki.biligame.com/images/ys/a/ab/ssm5hres5t2jcnmqlmxvko87frukaaa.png", }, AscensionTable.Local.琉璃袋, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.鸦印),
-                    Object.assign({ roelName: "烟绯", roleUrl: "https://patchwiki.biligame.com/images/ys/5/59/mzwn4qo66r2bh5aod73wvmeml4tf3jw.png", }, AscensionTable.Local.夜泊石, AscensionTable.stone.未熟之玉, AscensionTable.jewels.火, AscensionTable.Common.鸦印),
+                    Object.assign({ roelName: "迪卢克", roleUrl: "https://patchwiki.biligame.com/images/ys/9/94/mkpw3ljc2eoea75lhkyccu6mbsbiqnr.png", }, AscensionTable.skills.迪卢克, AscensionTable.skillCommon.徽记, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.东风之翎, AscensionTable.Local.小灯草, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.徽记),
+                    Object.assign({ roelName: "可莉", roleUrl: "https://patchwiki.biligame.com/images/ys/b/b1/rlnhn26076peuvah42o85o2pha5m7am.png", }, AscensionTable.skills.可莉, AscensionTable.skillCommon.绘卷, AscensionTable.skillBook.自由, AscensionTable.skillBoss.北风之环, AscensionTable.Local.慕风蘑菇, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.绘卷),
+                    Object.assign({ roelName: "胡桃", roleUrl: "https://patchwiki.biligame.com/images/ys/1/19/6x5q4v3ovlgtd5pk7xlqxjdqv1gvf0a.png", }, AscensionTable.skills.胡桃, AscensionTable.skillCommon.花蜜, AscensionTable.skillBook.勤劳, AscensionTable.skillBoss.魔王之刃·残片, AscensionTable.Local.霓裳花, AscensionTable.stone.未熟之玉, AscensionTable.jewels.火, AscensionTable.Common.花蜜),
+                    Object.assign({ roelName: "安柏", roleUrl: "https://patchwiki.biligame.com/images/ys/a/a7/c1hp9a87kti1ywjv7c5470e3dn0wxio.png", }, AscensionTable.skills.安柏, AscensionTable.skillCommon.箭簇, AscensionTable.skillBook.自由, AscensionTable.skillBoss.北风之环, AscensionTable.Local.小灯草, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.箭簇),
+                    Object.assign({ roelName: "班尼特", roleUrl: "https://patchwiki.biligame.com/images/ys/a/a0/nd8jx8novy6974e5ez7bz9la04vajw8.png", }, AscensionTable.skills.班尼特, AscensionTable.skillCommon.鸦印, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.东风之翎, AscensionTable.Local.风车菊, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.鸦印),
+                    Object.assign({ roelName: "香菱", roleUrl: "https://patchwiki.biligame.com/images/ys/c/cc/l5ae2erhaq8tn896a2yibndx5g7r5g5.png", }, AscensionTable.skills.香菱, AscensionTable.skillCommon.史莱姆, AscensionTable.skillBook.勤劳, AscensionTable.skillBoss.东风之爪, AscensionTable.Local.绝云椒椒, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.史莱姆),
+                    Object.assign({ roelName: "辛焱", roleUrl: "https://patchwiki.biligame.com/images/ys/a/ab/ssm5hres5t2jcnmqlmxvko87frukaaa.png", }, AscensionTable.skills.辛焱, AscensionTable.skillCommon.鸦印, AscensionTable.skillBook.黄金, AscensionTable.skillBoss.吞天之鲸·只角, AscensionTable.Local.琉璃袋, AscensionTable.stone.常燃火种, AscensionTable.jewels.火, AscensionTable.Common.鸦印),
+                    Object.assign({ roelName: "烟绯", roleUrl: "https://patchwiki.biligame.com/images/ys/5/59/mzwn4qo66r2bh5aod73wvmeml4tf3jw.png", }, AscensionTable.skills.烟绯, AscensionTable.skillCommon.鸦印, AscensionTable.skillBook.黄金, AscensionTable.skillBoss.血玉之枝, AscensionTable.Local.夜泊石, AscensionTable.stone.未熟之玉, AscensionTable.jewels.火, AscensionTable.Common.鸦印),
                 ]
             },
             {
                 属性: "水", role: [
-                    Object.assign({ roelName: "莫娜", roleUrl: "https://patchwiki.biligame.com/images/ys/c/ce/refnobe859mskudq9i634djaniepwvt.png", }, AscensionTable.Local.慕风蘑菇, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.花蜜),
-                    Object.assign({ roelName: "达达利亚", roleUrl: "https://patchwiki.biligame.com/images/ys/a/af/4v48u6t4v9mfnwmabch9ojskqa1x61a.png", }, AscensionTable.Local.星螺, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.徽记),
-                    Object.assign({ roelName: "芭芭拉", roleUrl: "https://patchwiki.biligame.com/images/ys/4/4f/nsllwey2yb8na9uab5vov22lo0zu1tf.png", }, AscensionTable.Local.慕风蘑菇, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.绘卷),
-                    Object.assign({ roelName: "行秋", roleUrl: "https://patchwiki.biligame.com/images/ys/a/a6/bz36kyv7jhk9p3sqk6g3r79a7t5aqa2.png", }, AscensionTable.Local.霓裳花, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.面具),
+                    Object.assign({ roelName: "莫娜", roleUrl: "https://patchwiki.biligame.com/images/ys/c/ce/refnobe859mskudq9i634djaniepwvt.png", }, AscensionTable.skills.莫娜, AscensionTable.skillCommon.花蜜, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.北风之环, AscensionTable.Local.慕风蘑菇, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.花蜜),
+                    Object.assign({ roelName: "达达利亚", roleUrl: "https://patchwiki.biligame.com/images/ys/a/af/4v48u6t4v9mfnwmabch9ojskqa1x61a.png", }, AscensionTable.skills.达达利亚, AscensionTable.skillCommon.徽记, AscensionTable.skillBook.自由, AscensionTable.skillBoss.魔王之刃·残片, AscensionTable.Local.星螺, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.徽记),
+                    Object.assign({ roelName: "芭芭拉", roleUrl: "https://patchwiki.biligame.com/images/ys/4/4f/nsllwey2yb8na9uab5vov22lo0zu1tf.png", }, AscensionTable.skills.芭芭拉, AscensionTable.skillCommon.绘卷, AscensionTable.skillBook.自由, AscensionTable.skillBoss.北风之环, AscensionTable.Local.慕风蘑菇, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.绘卷),
+                    Object.assign({ roelName: "行秋", roleUrl: "https://patchwiki.biligame.com/images/ys/a/a6/bz36kyv7jhk9p3sqk6g3r79a7t5aqa2.png", }, AscensionTable.skills.行秋, AscensionTable.skillCommon.面具, AscensionTable.skillBook.黄金, AscensionTable.skillBoss.北风之尾, AscensionTable.Local.霓裳花, AscensionTable.stone.净水之心, AscensionTable.jewels.水, AscensionTable.Common.面具),
                 ]
             },
             {
                 属性: "风", role: [
-                    Object.assign({ roelName: "琴", roleUrl: "https://patchwiki.biligame.com/images/ys/1/1a/g3cl4mrxow8af265n2ajqtnuf99pkfa.png", }, AscensionTable.Local.蒲公英籽, AscensionTable.stone.飓风之种, AscensionTable.jewels.风, AscensionTable.Common.面具),
-                    Object.assign({ roelName: "温迪", roleUrl: "https://patchwiki.biligame.com/images/ys/5/58/487eqx6pk6si5abhemvrdkyexskvvbg.png", }, AscensionTable.Local.塞西莉亚花, AscensionTable.stone.飓风之种, AscensionTable.jewels.风, AscensionTable.Common.史莱姆),
-                    Object.assign({ roelName: "魈", roleUrl: "https://patchwiki.biligame.com/images/ys/d/dc/5gzl19235uvm0mxu3w45hqnb27f0mn6.png", }, AscensionTable.Local.清心, AscensionTable.stone.未熟之玉, AscensionTable.jewels.风, AscensionTable.Common.史莱姆),
-                    Object.assign({ roelName: "砂糖", roleUrl: "https://patchwiki.biligame.com/images/ys/c/cc/rhbp5t3iyzpsk2dc34kv18yem0nlmzo.png", }, AscensionTable.Local.风车菊, AscensionTable.stone.飓风之种, AscensionTable.jewels.风, AscensionTable.Common.花蜜),
+                    Object.assign({ roelName: "琴", roleUrl: "https://patchwiki.biligame.com/images/ys/1/1a/g3cl4mrxow8af265n2ajqtnuf99pkfa.png", }, AscensionTable.skills.琴, AscensionTable.skillCommon.面具, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.东风之翎, AscensionTable.Local.蒲公英籽, AscensionTable.stone.飓风之种, AscensionTable.jewels.风, AscensionTable.Common.面具),
+                    Object.assign({ roelName: "温迪", roleUrl: "https://patchwiki.biligame.com/images/ys/5/58/487eqx6pk6si5abhemvrdkyexskvvbg.png", }, AscensionTable.skills.温迪, AscensionTable.skillCommon.史莱姆, AscensionTable.skillBook.诗文, AscensionTable.skillBoss.北风之尾, AscensionTable.Local.塞西莉亚花, AscensionTable.stone.飓风之种, AscensionTable.jewels.风, AscensionTable.Common.史莱姆),
+                    Object.assign({ roelName: "魈", roleUrl: "https://patchwiki.biligame.com/images/ys/d/dc/5gzl19235uvm0mxu3w45hqnb27f0mn6.png", }, AscensionTable.skills.魈, AscensionTable.skillCommon.史莱姆, AscensionTable.skillBook.繁荣, AscensionTable.skillBoss.武炼之魂·孤影, AscensionTable.Local.清心, AscensionTable.stone.未熟之玉, AscensionTable.jewels.风, AscensionTable.Common.史莱姆),
+                    Object.assign({ roelName: "枫原万叶", roleUrl: "https://patchwiki.biligame.com/images/ys/6/6a/e1n6v73p785ne6kew41q9snh45zrup2.png", }, AscensionTable.skills.枫原万叶, AscensionTable.skillCommon.鸦印, AscensionTable.skillBook.勤劳, AscensionTable.skillBoss.鎏金之鳞, AscensionTable.Local.海灵芝, AscensionTable.stone.魔偶机心, AscensionTable.jewels.风, AscensionTable.Common.鸦印),
+                    Object.assign({ roelName: "砂糖", roleUrl: "https://patchwiki.biligame.com/images/ys/c/cc/rhbp5t3iyzpsk2dc34kv18yem0nlmzo.png", }, AscensionTable.skills.砂糖, AscensionTable.skillCommon.花蜜, AscensionTable.skillBook.自由, AscensionTable.skillBoss.北风的魂匣, AscensionTable.stone.飓风之种, AscensionTable.Local.风车菊, AscensionTable.jewels.风, AscensionTable.Common.花蜜),
                 ]
             },
             {
                 属性: "雷", role: [
-                    Object.assign({ roelName: "刻晴", roleUrl: "https://patchwiki.biligame.com/images/ys/6/64/goj6bb8yj190midok60n2fbkk872090.png", }, AscensionTable.Local.石珀, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.花蜜),
-                    Object.assign({ roelName: "北斗", roleUrl: "https://patchwiki.biligame.com/images/ys/9/9a/7v8r50l2lx0fzc2tllu20e2v7y54zms.png", }, AscensionTable.Local.夜泊石, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.鸦印),
-                    Object.assign({ roelName: "丽莎", roleUrl: "https://patchwiki.biligame.com/images/ys/6/69/t3g00dnjqa23jssp0lkuty27e9p1n7j.png", }, AscensionTable.Local.洛洛莓, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.史莱姆),
-                    Object.assign({ roelName: "雷泽", roleUrl: "https://patchwiki.biligame.com/images/ys/4/4d/8bdo6ydvnfl23s7jx69dtp1cmoo3svm.png", }, AscensionTable.Local.钩钩果, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.面具),
-                    Object.assign({ roelName: "菲谢尔", roleUrl: "https://patchwiki.biligame.com/images/ys/0/06/cmlxoc9sfz7nrwmt495351zcj1qd93e.png", }, AscensionTable.Local.小灯草, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.箭簇),
+                    Object.assign({ roelName: "刻晴", roleUrl: "https://patchwiki.biligame.com/images/ys/6/64/goj6bb8yj190midok60n2fbkk872090.png", }, AscensionTable.skills.刻晴, AscensionTable.skillCommon.花蜜, AscensionTable.skillBook.繁荣, AscensionTable.skillBoss.北风之环, AscensionTable.Local.石珀, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.花蜜),
+                    Object.assign({ roelName: "北斗", roleUrl: "https://patchwiki.biligame.com/images/ys/9/9a/7v8r50l2lx0fzc2tllu20e2v7y54zms.png", }, AscensionTable.skills.北斗, AscensionTable.skillCommon.鸦印, AscensionTable.skillBook.黄金, AscensionTable.skillBoss.北风之环, AscensionTable.Local.夜泊石, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.鸦印),
+                    Object.assign({ roelName: "丽莎", roleUrl: "https://patchwiki.biligame.com/images/ys/6/69/t3g00dnjqa23jssp0lkuty27e9p1n7j.png", }, AscensionTable.skills.丽莎, AscensionTable.skillCommon.史莱姆, AscensionTable.skillBook.诗文, AscensionTable.skillBoss.东风之爪, AscensionTable.Local.洛洛莓, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.史莱姆),
+                    Object.assign({ roelName: "雷泽", roleUrl: "https://patchwiki.biligame.com/images/ys/4/4d/8bdo6ydvnfl23s7jx69dtp1cmoo3svm.png", }, AscensionTable.skills.雷泽, AscensionTable.skillCommon.面具, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.东风之爪, AscensionTable.Local.钩钩果, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.面具),
+                    Object.assign({ roelName: "菲谢尔", roleUrl: "https://patchwiki.biligame.com/images/ys/0/06/cmlxoc9sfz7nrwmt495351zcj1qd93e.png", }, AscensionTable.skills.菲谢尔, AscensionTable.skillCommon.箭簇, AscensionTable.skillBook.诗文, AscensionTable.skillBoss.北风的魂匣, AscensionTable.Local.小灯草, AscensionTable.stone.雷光棱镜, AscensionTable.jewels.雷, AscensionTable.Common.箭簇),
                 ]
             },
             {
                 属性: "冰", role: [
-                    Object.assign({ roelName: "七七", roleUrl: "https://patchwiki.biligame.com/images/ys/8/8b/049fpv6jcr66mln0nmbbfgigfrkgrzo.png", }, AscensionTable.Local.琉璃袋, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.绘卷),
-                    Object.assign({ roelName: "甘雨", roleUrl: "https://patchwiki.biligame.com/images/ys/3/3c/qr9mmt4ryhcuovbx82pazu3xv7wr19p.png", }, AscensionTable.Local.清心, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.花蜜),
-                    Object.assign({ roelName: "优菈", roleUrl: "https://patchwiki.biligame.com/images/ys/1/1b/jf6qfoaq6q48jx6lvqb88dgl4xta141.png", }, AscensionTable.Local.蒲公英籽, AscensionTable.stone.晶凝之华, AscensionTable.jewels.冰, AscensionTable.Common.面具),
-                    Object.assign({ roelName: "凯亚", roleUrl: "https://patchwiki.biligame.com/images/ys/e/e5/knnismq9um424psahpu5vag0ysu3jab.png", }, AscensionTable.Local.嘟嘟莲, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.鸦印),
-                    Object.assign({ roelName: "重云", roleUrl: "https://patchwiki.biligame.com/images/ys/4/46/mpnu86qhgs99cbbt35kb09702aqp70i.png", }, AscensionTable.Local.石珀, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.面具),
-                    Object.assign({ roelName: "迪奥娜", roleUrl: "https://patchwiki.biligame.com/images/ys/8/8e/ebp74g68onexgkc2xsjuornx2j6bowp.png", }, AscensionTable.Local.嘟嘟莲, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.箭簇),
-                    Object.assign({ roelName: "罗莎莉亚", roleUrl: "https://patchwiki.biligame.com/images/ys/d/d0/euoe9ncjixk5wlzfumjb81zf2ew7i49.png", }, AscensionTable.Local.落落莓, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.徽记),
+                    Object.assign({ roelName: "七七", roleUrl: "https://patchwiki.biligame.com/images/ys/8/8b/049fpv6jcr66mln0nmbbfgigfrkgrzo.png", }, AscensionTable.skills.七七, AscensionTable.skillCommon.绘卷, AscensionTable.skillBook.繁荣, AscensionTable.skillBoss.北风之尾, AscensionTable.Local.琉璃袋, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.绘卷),
+                    Object.assign({ roelName: "甘雨", roleUrl: "https://patchwiki.biligame.com/images/ys/3/3c/qr9mmt4ryhcuovbx82pazu3xv7wr19p.png", }, AscensionTable.skills.甘雨, AscensionTable.skillCommon.花蜜, AscensionTable.skillBook.勤劳, AscensionTable.skillBoss.武炼之魂·孤影, AscensionTable.Local.清心, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.花蜜),
+                    Object.assign({ roelName: "优菈", roleUrl: "https://patchwiki.biligame.com/images/ys/1/1b/jf6qfoaq6q48jx6lvqb88dgl4xta141.png", }, AscensionTable.skills.优菈, AscensionTable.skillCommon.面具, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.龙王之冕, AscensionTable.Local.蒲公英籽, AscensionTable.stone.晶凝之华, AscensionTable.jewels.冰, AscensionTable.Common.面具),
+                    Object.assign({ roelName: "凯亚", roleUrl: "https://patchwiki.biligame.com/images/ys/e/e5/knnismq9um424psahpu5vag0ysu3jab.png", }, AscensionTable.skills.凯亚, AscensionTable.skillCommon.鸦印, AscensionTable.skillBook.诗文, AscensionTable.skillBoss.北风的魂匣, AscensionTable.Local.嘟嘟莲, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.鸦印),
+                    Object.assign({ roelName: "重云", roleUrl: "https://patchwiki.biligame.com/images/ys/4/46/mpnu86qhgs99cbbt35kb09702aqp70i.png", }, AscensionTable.skills.重云, AscensionTable.skillCommon.面具, AscensionTable.skillBook.勤劳, AscensionTable.skillBoss.北风之环, AscensionTable.Local.石珀, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.面具),
+                    Object.assign({ roelName: "迪奥娜", roleUrl: "https://patchwiki.biligame.com/images/ys/8/8e/ebp74g68onexgkc2xsjuornx2j6bowp.png", }, AscensionTable.skills.迪奥娜, AscensionTable.skillCommon.箭簇, AscensionTable.skillBook.自由, AscensionTable.skillBoss.魔王之刃·残片, AscensionTable.Local.嘟嘟莲, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.箭簇),
+                    Object.assign({ roelName: "罗莎莉亚", roleUrl: "https://patchwiki.biligame.com/images/ys/d/d0/euoe9ncjixk5wlzfumjb81zf2ew7i49.png", }, AscensionTable.skills.罗莎莉亚, AscensionTable.skillCommon.徽记, AscensionTable.skillBook.诗文, AscensionTable.skillBoss.武炼之魂·孤影, AscensionTable.Local.落落莓, AscensionTable.stone.极寒之核, AscensionTable.jewels.冰, AscensionTable.Common.徽记),
                 ]
             },
             {
                 属性: "岩", role: [
-                    Object.assign({ roelName: "钟离", roleUrl: "https://patchwiki.biligame.com/images/ys/7/7c/eewy674lo37jwuq9qozyszhz8vo0d8j.png", }, AscensionTable.Local.石珀, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.史莱姆),
-                    Object.assign({ roelName: "阿贝多", roleUrl: "https://patchwiki.biligame.com/images/ys/2/21/k1zod68cqa6e89r0poxm9ihfmqfmgvw.png", }, AscensionTable.Local.塞西莉亚花, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.绘卷),
-                    Object.assign({ roelName: "诺艾尔", roleUrl: "https://patchwiki.biligame.com/images/ys/1/1e/q7e7j4ybveu9vpezgvjogwpmfzz1mm2.png", }, AscensionTable.Local.落落莓, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.面具),
-                    Object.assign({ roelName: "凝光", roleUrl: "https://patchwiki.biligame.com/images/ys/6/6c/oo4earntw7se6jssxq5tjgsbyxrho79.png", }, AscensionTable.Local.琉璃百合, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.徽记),
+                    Object.assign({ roelName: "钟离", roleUrl: "https://patchwiki.biligame.com/images/ys/7/7c/eewy674lo37jwuq9qozyszhz8vo0d8j.png", }, AscensionTable.skills.钟离, AscensionTable.skillCommon.史莱姆, AscensionTable.skillBook.黄金, AscensionTable.skillBoss.吞天之鲸·只角, AscensionTable.Local.石珀, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.史莱姆),
+                    Object.assign({ roelName: "阿贝多", roleUrl: "https://patchwiki.biligame.com/images/ys/2/21/k1zod68cqa6e89r0poxm9ihfmqfmgvw.png", }, AscensionTable.skills.阿贝多, AscensionTable.skillCommon.绘卷, AscensionTable.skillBook.诗文, AscensionTable.skillBoss.吞天之鲸·只角, AscensionTable.Local.塞西莉亚花, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.绘卷),
+                    Object.assign({ roelName: "诺艾尔", roleUrl: "https://patchwiki.biligame.com/images/ys/1/1e/q7e7j4ybveu9vpezgvjogwpmfzz1mm2.png", }, AscensionTable.skills.诺艾尔, AscensionTable.skillCommon.面具, AscensionTable.skillBook.抗争, AscensionTable.skillBoss.东风之爪, AscensionTable.Local.落落莓, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.面具),
+                    Object.assign({ roelName: "凝光", roleUrl: "https://patchwiki.biligame.com/images/ys/6/6c/oo4earntw7se6jssxq5tjgsbyxrho79.png", }, AscensionTable.skills.凝光, AscensionTable.skillCommon.徽记, AscensionTable.skillBook.繁荣, AscensionTable.skillBoss.北风的魂匣, AscensionTable.Local.琉璃百合, AscensionTable.stone.玄岩之塔, AscensionTable.jewels.岩, AscensionTable.Common.徽记),
                 ]
             },
         ],
@@ -1692,11 +2065,22 @@
 
 
             this.InformationSwitch = ko.observable(true)
+            this.skillSwitch = ko.observable(true)
             this.roleC = ko.observable(false)
+
 
             this.角色数量 = ko.observable(1);
             this.当前等级 = ko.observable(20);
             this.目标等级 = ko.observable(40);
+            this.技能1图标 = ko.observable('https://patchwiki.biligame.com/images/ys/2/26/t4ruhv20kbm42fvjno4wu6j6bphnp68.png')
+            this.技能2图标 = ko.observable('https://patchwiki.biligame.com/images/ys/4/44/35h2yols01b2xqtb2wp72ow9c7vrbmn.png')
+            this.技能3图标 = ko.observable('https://patchwiki.biligame.com/images/ys/8/82/nylylj92760f6sgwu9u7l2j94sbfi5x.png')
+            this.技能1当前等级 = ko.observable(1)
+            this.技能1目标等级 = ko.observable(1)
+            this.技能2当前等级 = ko.observable(1)
+            this.技能2目标等级 = ko.observable(1)
+            this.技能3当前等级 = ko.observable(1)
+            this.技能3目标等级 = ko.observable(1)
             this.等级差 = ko.computed(function () {
                 return this.目标等级() - this.当前等级();
             }, this);
@@ -1779,40 +2163,7 @@
                 return returnData
             };
             //⬆
-            this.突破摩拉 = ko.computed(function () {
-                g = that.当前等级();
-                h = that.目标等级();
-                that = that
-                rD = ascensionNum(g, h, that)
-                ascensionMoraSum = 0;
-                for (var i = 0; i < rD.aDifference + 1; i++) {
-                    ascensionMoraSum = ascensionMoraSum + roleDataTable.角色突破素材[rD.aNumStart].摩拉;
-                    rD.aNumStart = Number(rD.aNumStart) + 1;
-                };
-                ascensionMoraSum = ascensionMoraSum * that.角色数量()
-                return ascensionMoraSum;
-            });
 
-            this.总计摩拉 = ko.computed(function () {
-                return this.突破摩拉() + this.升级摩拉()
-            }, this);
-
-            this.需要经验 = ko.computed(function () {
-                var re = that.角色总计经验() / 10000
-                if (re < 1) {
-                    return that.角色总计经验()
-                } else {
-                    return (that.角色总计经验() / 10000).toFixed(2) + 'w'
-                }
-            })
-            this.需要摩拉 = ko.computed(function () {
-                var re = that.总计摩拉() / 10000
-                if (re < 1) {
-                    return that.总计摩拉()
-                } else {
-                    return (that.总计摩拉() / 10000).toFixed(2) + 'w'
-                }
-            })
 
             jewelsNum = function (that, t) {
                 g = that.当前等级();
@@ -1902,6 +2253,125 @@
                 return jewelsNum(that, '怪物素材3')
             })
 
+            SkillsMmaterialNum = function (that, t) {
+                h1 = Number(that.技能1当前等级());
+                h2 = Number(that.技能2当前等级());
+                h3 = Number(that.技能3当前等级());
+                sD1 = Number(that.技能1目标等级()) - Number(that.技能1当前等级())
+                sD2 = that.技能2目标等级() - that.技能2当前等级()
+                sD3 = that.技能3目标等级() - that.技能3当前等级()
+                if (that.skillSwitch() == true) {
+                    sD1 = 0
+                } else {
+                    if (sD1 < 1) {
+                        sD1 = 0
+                    }
+                }
+                if (that.skillSwitch() == true) {
+                    sD2 = 0
+                } else {
+                    if (sD2 < 1) {
+                        sD2 = 0
+                    }
+                }
+                if (that.skillSwitch() == true) {
+                    sD3 = 0
+                } else {
+                    if (sD3 < 1) {
+                        sD3 = 0
+                    }
+                }
+
+                num = 0;
+                // console.log(sD1);
+                // console.log(h1);
+                for (var i = 0; i < sD1; i++) {
+                    var data = eval('roleDataTable.技能突破素材[h1].' + t);
+                    num = num + data;
+                    h1 = h1 + 1;
+                };
+                for (var i = 0; i < sD2; i++) {
+                    var data = eval('roleDataTable.技能突破素材[h2].' + t);
+                    num = num + data;
+                    h2 = h2 + 1;
+                };
+                for (var i = 0; i < sD3; i++) {
+                    var data = eval('roleDataTable.技能突破素材[h3].' + t);
+                    num = num + data;
+                    h3 = h3 + 1;
+                };
+                return num;
+            }
+
+
+            this.技能书2显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能书2') !== 0
+            });
+            this.技能书3显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能书3') !== 0
+            });
+            this.技能书4显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能书4') !== 0
+            });
+            this.技能素材1显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材1') !== 0
+            });
+            this.技能素材2显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材2') !== 0
+            });
+            this.技能素材3显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材3') !== 0
+            });
+            this.技能素材4显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材4') !== 0
+            });
+            this.技能素材5显示 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材5') !== 0
+            });
+            this.技能书2数量 = ko.observable(0)
+            this.技能书3数量 = ko.observable(0)
+            this.技能书4数量 = ko.observable(0)
+            this.技能素材1数量 = ko.observable(0)
+            this.技能素材2数量 = ko.observable(0)
+            this.技能素材3数量 = ko.observable(0)
+            this.技能素材4数量 = ko.observable(0)
+            this.技能素材5数量 = ko.observable(0)
+            this.技能书2种类 = ko.observable("https://patchwiki.biligame.com/images/ys/7/73/kf43vlemusictmf2mbhcfwuxyxfarbo.png")
+            this.技能书3种类 = ko.observable("https://patchwiki.biligame.com/images/ys/e/e0/r49lmoip2pyk8uceckabzoze8r8h97q.png")
+            this.技能书4种类 = ko.observable("https://patchwiki.biligame.com/images/ys/5/5d/mfl7jam6nvcprwas5ar873854u2xo3k.png")
+            this.技能素材1种类 = ko.observable("https://patchwiki.biligame.com/images/ys/c/c4/j9ztmg4efjma80znjn2qfo2l0yfz23h.png")
+            this.技能素材2种类 = ko.observable("https://patchwiki.biligame.com/images/ys/0/01/mzl8hoc1yc4af7ohn50ix0zovuyetdg.png")
+            this.技能素材3种类 = ko.observable("https://patchwiki.biligame.com/images/ys/3/35/1e7rgtc8wm2iab6z5pm2wwptsjjd1w3.png")
+            this.技能素材4种类 = ko.observable("https://patchwiki.biligame.com/images/ys/c/cf/dgbh5hoebc6tprq0bgt3y6pwjkv1czu.png")
+            this.技能素材5种类 = ko.observable("https://patchwiki.biligame.com/images/ys/6/68/n7rlb261e62mqln4flupbclks1jdqmm.png")
+            this.技能书2数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能书2')
+            })
+            this.技能书3数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能书3')
+            })
+            this.技能书4数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能书4')
+            })
+            this.技能素材1数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材1')
+            })
+            this.技能素材2数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材2')
+            })
+            this.技能素材3数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材3')
+            })
+            this.技能素材4数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材4')
+            })
+            this.技能素材5数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '技能素材5')
+            })
+            this.技能摩拉数量 = ko.computed(function () {
+                return SkillsMmaterialNum(that, '摩拉')
+            })
+
             this.roleOn = function () {
                 that.roleChoice(this.roleUrl);
                 that.roleC(false);
@@ -1915,7 +2385,55 @@
                 that.怪物素材1种类(this.怪物素材1名);
                 that.怪物素材2种类(this.怪物素材2名);
                 that.怪物素材3种类(this.怪物素材3名);
+                that.技能1图标(this.技能1图标);
+                that.技能2图标(this.技能2图标);
+                that.技能3图标(this.技能3图标);
+                that.技能书2种类(this.技能书2名);
+                that.技能书3种类(this.技能书3名);
+                that.技能书4种类(this.技能书4名);
+                that.技能素材1数量(this.技能素材1名);
+                that.技能素材2数量(this.技能素材2名);
+                that.技能素材3数量(this.技能素材3名);
+                that.技能素材4数量(this.技能素材4名);
+                that.技能素材5数量(this.技能素材5名);
             };
+
+            this.突破摩拉 = ko.computed(function () {
+                g = that.当前等级();
+                h = that.目标等级();
+                that = that
+                rD = ascensionNum(g, h, that)
+                ascensionMoraSum = 0;
+                for (var i = 0; i < rD.aDifference + 1; i++) {
+                    ascensionMoraSum = ascensionMoraSum + roleDataTable.角色突破素材[rD.aNumStart].摩拉;
+                    rD.aNumStart = Number(rD.aNumStart) + 1;
+                };
+                if (that.roleCount() == false) {
+                    ascensionMoraSum = ascensionMoraSum * that.角色数量()
+                }
+                return ascensionMoraSum;
+            });
+
+            this.总计摩拉 = ko.computed(function () {
+                return this.突破摩拉() + this.升级摩拉() + this.技能摩拉数量()
+            }, this);
+
+            this.需要经验 = ko.computed(function () {
+                var re = that.角色总计经验() / 10000
+                if (re < 1) {
+                    return that.角色总计经验()
+                } else {
+                    return (that.角色总计经验() / 10000).toFixed(2) + 'w'
+                }
+            })
+            this.需要摩拉 = ko.computed(function () {
+                var re = that.总计摩拉() / 10000
+                if (re < 1) {
+                    return that.总计摩拉()
+                } else {
+                    return (that.总计摩拉() / 10000).toFixed(2) + 'w'
+                }
+            })
         };
 
         function 武器(t) {
@@ -2026,6 +2544,7 @@
                 { url: 'https://patchwiki.biligame.com/images/ys/3/35/6bmkjts1mjq9snk5p132ye4dwmle6yy.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/2/27/to7baafkfkydwwe9drekwltdu8utxhi.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/9/90/fk6wbgb721j7shhaeupowm8lxlwaxmb.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d8/12cpvzi4oqwl98y1mjyfugt8pa417vl.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/c/c4/j9ztmg4efjma80znjn2qfo2l0yfz23h.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/0/01/mzl8hoc1yc4af7ohn50ix0zovuyetdg.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/3/35/1e7rgtc8wm2iab6z5pm2wwptsjjd1w3.png', number: 0 },
@@ -2080,7 +2599,41 @@
                 { url: 'https://patchwiki.biligame.com/images/ys/d/dc/6gdyztdho4pi7psg9bxkq0ze6vkzg3p.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/0/0a/lawi0tnn11sz3ya8em24etb6xe6vgdz.png', number: 0 },
                 { url: 'https://patchwiki.biligame.com/images/ys/9/95/t83h7eegnhz9l50wfx4vayajot9zloe.png', number: 0 },
-                { url: 'https://patchwiki.biligame.com/images/ys/d/d0/0yhnutyznh3w8tw51zy3xfhdx71ye9o.png', number: 0 }
+                { url: 'https://patchwiki.biligame.com/images/ys/d/d0/0yhnutyznh3w8tw51zy3xfhdx71ye9o.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/1/11/an4y061g9i8897tb96x9baxf40d478a.png', number: 0 },
+
+                { url: 'https://patchwiki.biligame.com/images/ys/8/89/72bd1io1kzx908ww19ifn9ddxad08tr.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/2d/obztxb15m30cp42ym4kqybzp9du22ct.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/f/f3/9lhudak6xyej8cewbiv3i6elu5b9cu9.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/73/kf43vlemusictmf2mbhcfwuxyxfarbo.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/6/6c/otcuxr3dpy3p6ur5xd5kkm40wgeqf2u.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/c5/57ouvui2qcg0wdlo6nrlx0jaq7imhzk.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/24/llwlzow1qm80z3d4qbrbpgyxtxfny55.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/2/2e/62b4lm4eb3xe4ia2w2btgyn9x533uqv.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/04/ltp4zdvywufpqhqvhbv9pzm9bmoryp4.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/e0/r49lmoip2pyk8uceckabzoze8r8h97q.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/4/48/izgaogazkdiesppvht9ag4izndibzhz.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/03/mub34524x3efaccl3bsp1turjnm50f9.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/7/7b/qqr3ea891i0e4pwylmq4qx33fwva19o.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/9b/kb572qmk0guz3g6rphfqaic92ghaaao.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/1/17/42c4sjepxmph1oi3ewursnjff5qvntt.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/5d/mfl7jam6nvcprwas5ar873854u2xo3k.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/4/4d/g6ixeps45z8fqx2ov1vlcvb762bwn1y.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/5/5e/so6j6jbrn1nizustkc6gxc1vmd8lrzf.png', number: 0 },
+
+                { url: 'https://patchwiki.biligame.com/images/ys/c/c3/pjs5u7kth7nuqygmlpf06l1w3346oia.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/9/9c/3p4ao8iyd50j84e7gwuggamo42yp8ea.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/c0/dzqkfx0waps2rmwpfurnyscv4puq1aj.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/b/bf/ovcgxlvyb7h6d1r6ylnao9ay5wuik1b.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/c/cf/dgbh5hoebc6tprq0bgt3y6pwjkv1czu.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/8/87/qcwcbn0xx1np6hmgaaxey1613p0l7k1.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/e/ee/ob30hi1czpk2sbesaub6pmlswgwp6m0.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/d/dc/az2ef0snc9kfco8i3ikhti6274m3iwj.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/f/f9/fcv0klshynz8stwwd8xny2zfjq4fgg7.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/0/0b/6is8cna97fwc90hu2uatkarifug9r81.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/1/1e/scq9n0c650n62lgdw1mg74eib9se7yr.png', number: 0 },
+                { url: 'https://patchwiki.biligame.com/images/ys/3/3e/i0fuih9dix4dtxw96g51nbqqumtousp.png', number: 0 },
+
             ]
             var cs = []
 
@@ -2155,6 +2708,54 @@
                         materialsNum(h, t)
                     }
                 }
+                if (self.角色()[h].技能书2数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能书2'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能书3数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能书3'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能书4数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能书4'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能素材1数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能素材1'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能素材2数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能素材2'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能素材3数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能素材3'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能素材4数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能素材4'
+                        materialsNum(h, t)
+                    }
+                }
+                if (self.角色()[h].技能素材5数量() !== 0) {
+                    if (self.角色()[h].roleCount() == true) {
+                        var t = '技能素材5'
+                        materialsNum(h, t)
+                    }
+                }
             }
             for (var i in matNumCase) {
                 if (eval(matNumCase[i]["number"] !== 0)) {
@@ -2163,15 +2764,6 @@
             }
             return cs;
         }, this)
-
-        // Expbook = function (t) {
-        //     var ExpboolF = Math.floor(t.角色合计经验() / roleDataTable.经验书经验表["大英雄的经验"]);//紫书数量向下取整
-        //     var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["大英雄的经验"];//紫书剩的经验
-        //     var ExpboolS = Math.floor(expSurplus / roleDataTable.经验书经验表["冒险家的经验"]);//红书数量向下取整
-        //     var expSurplus = t.角色合计经验() % roleDataTable.经验书经验表["冒险家的经验"];//红书剩的经验
-        //     var ExpboolT = Math.ceil(expSurplus / roleDataTable.经验书经验表["流浪者的经验"]);//白书数量向上取整
-        //     return { ExpboolF, ExpboolS, ExpboolT }
-        // }
 
         this.角色合计经验 = ko.computed(function () {
             var Exp = 0
